@@ -1,0 +1,113 @@
+
+		<script>
+			function addAcc() {
+				alert("Account added");
+				currentPage.loadPage('setpw');
+			}
+		</script>
+	
+		
+		<br />
+		<br />
+		<br />
+
+		<div class="padding">
+
+			<!--Eingabetext-->
+			<div class="test has-footer has-header" >
+				<br />
+				<div class="list list-insert">
+					<label class="item item-input">
+						<input type="text" placeholder="Username">
+					</label>
+					<div class="list">
+						<label class="item item-input item-select">
+							<div class="input-label">
+								Service
+							</div>
+							<select>
+								<option selected>Facebook</option>
+								<option>Xing</option>
+								<option>web.de</option>
+								<option>live.de</option>
+							</select> </label>
+					</div>
+					<ul class="list">
+						<div class="item range range-balanced listColor">
+							<form style="width:100%" oninput="x.value=parseInt(a.value)">
+
+								<div class="row">
+									<h2>Length</h2>
+									<input type="range" name="volume" min="12" max="20" value="16" step="1" id="a">
+									<h2>
+									<output style="font-size: 18px " name="x" for="a">
+										16
+									</output></h2>
+
+								</div>
+
+							</form>
+						</div>
+						<li class="item item-toggle listColor">
+							<h2>Letters</h2>
+							<label class="toggle toggle-royal">
+								<input type="checkbox">
+								<div class="track">
+									<div class="handle"></div>
+								</div> </label>
+						</li>
+
+						<li class="item item-toggle listColor">
+							<h2>Numbers</h2>
+							<label class="toggle toggle-calm">
+								<input type="checkbox">
+								<div class="track">
+									<div class="handle"></div>
+								</div> </label>
+						</li>
+						<li class="item item-toggle listColor">
+							<h2>Special characters</h2>
+							<label class="toggle toggle-balanced">
+								<input type="checkbox">
+								<div class="track">
+									<div class="handle"></div>
+								</div> </label>
+						</li>
+					</ul>
+					<div class="padding">
+						<p align="right">
+							<button onclick="addAcc()" class="button button-calm" >
+								<btntxtcolor>
+									add
+								</btntxtcolor>
+							</button>
+						</p>
+					</div>
+					<div class="padding-vertical">
+						<p align="right">
+
+						</p>
+
+					</div>
+				</div>
+			</div>
+
+			<!--TAB-Section-->
+	<div id="footer">
+		<div class="tabs-icon-top tabs test3">
+			<a class="tab-item" onclick="currentPage.loadPage('full')"> <i id ='full' class="icon ion-ios-list"></i>
+				<p>Full</p></a>
+			<!--<a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
+			<a class="tab-item" onclick="currentPage.loadPage('mngt')"> <i id ="mngt" class="icon ion-ios-folder"></i>
+				<p>Manage</p></a>
+			<!-- <a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
+			<a class="tab-item" onclick="currentPage.loadPage('options')"> <i id ="options" class="icon ion-ios-gear"></i>
+				<p>Options</p></a>
+			<!-- <a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
+			<a class="tab-item" onclick="currentPage.loadPage('help')" > <i id ="help" class="icon ion-ios-help"></i>
+				<p>Help</p></a>
+			<!-- <a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
+		</div>
+	</div>
+
+	

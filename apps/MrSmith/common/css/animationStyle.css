@@ -1,0 +1,135 @@
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(90deg, #485563 10%, #29323c 90%);
+}
+
+.container {
+  width: 400px;
+  height: 400px;
+  margin: 80px auto;
+  position: relative;
+}
+
+.fa-check {
+  transform: scale(0);
+}
+.fa-lock {
+  cursor:pointer;
+}
+.fa-lock,
+.fa-check {
+  display: block;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
+  z-index: 4;
+  position: absolute;
+  top: 38%;
+  left: 38%;
+}
+
+.lock,
+.bubble {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.lock {
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 3;
+}
+
+.bubble {
+  transition: 1s all;
+}
+
+.bubble:nth-child(4) {
+  width: 240px;
+  height: 240px;
+  border: 1px solid rgba(0, 0, 0, .8);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  transform: scale(0.60);
+}
+
+.bubble:nth-child(5) {
+  width: 320px;
+  height: 320px;
+  border: 1px solid rgba(0, 0, 0, .4);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  transform: scale(0.30);
+}
+
+.container .expand {
+  transform: scale(1);
+}
+
+.away {
+  animation: awayWith 1s;
+  transform: scale(0);
+}
+
+.return {
+  animation: returnWith 2s;
+  transform: scale(1.2);
+}
+
+@keyframes awayWith {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes returnWith {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0);
+  }
+  75% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.good {
+  background: rgba(120, 255, 109, 0.5);
+  animation: correct 2s;
+}
+
+@keyframes correct {
+  0% {
+    background: rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
