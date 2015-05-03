@@ -7,6 +7,7 @@ base.iphone=541535931
 base.windowsphone8=3975245774
 common.android=3951631686
 eclipse.preferences.version=1
+encoding//apps/MrSmith/android/css/main.css=UTF-8
 encoding//apps/MrSmith/common/css/main.css=UTF-8
 encoding//apps/MrSmith/common/index.html=UTF-8
 encoding/<project>=UTF-8
