@@ -1,20 +1,4 @@
-<script>
-			function editDelete() {
-				var x;
-				if (confirm("Are you sure?") == true) {
-					x = "done";
-					//Account löschen
-					currentPage.loadPage('mngtuser');
-				} else {
-					x = "cancelled";
-				}
-				document.getElementById("demo").innerHTML = x;
-			}
 
-			function showPw() {
-				alert("YOUR PW");
-			}
-		</script>
 		
 		<br />
 		<br />
@@ -33,48 +17,7 @@
 							Facebook is a social utility that connects people with friends...
 						</h3> </a>
 
-				<ul class="list">
-					<div class="item range range-balanced listColor">
-						<form style="width:100%" oninput="x.value=parseInt(a.value)">
-
-							<div class="row">
-								<h2>Length</h2>
-								<input type="range" name="volume" min="12" max="20" value="16" step="1" id="a">
-								<h2>
-								<output style="font-size: 18px " name="x" for="a">
-									16
-								</output></h2>
-
-							</div>
-
-						</form>
-					</div>
-					<li class="item item-toggle listColor">
-						<h2>Letters</h2>
-						<label class="toggle toggle-royal">
-							<input type="checkbox">
-							<div class="track">
-								<div class="handle"></div>
-							</div> </label>
-					</li>
-
-					<li class="item item-toggle listColor">
-						<h2>Numbers</h2>
-						<label class="toggle toggle-calm">
-							<input type="checkbox">
-							<div class="track">
-								<div class="handle"></div>
-							</div> </label>
-					</li>
-					<li class="item item-toggle listColor">
-						<h2>Special characters</h2>
-						<label class="toggle toggle-balanced">
-							<input type="checkbox">
-							<div class="track">
-								<div class="handle"></div>
-							</div> </label>
-					</li>
-				</ul>
+			
 
 				<div class="row">
 					<div class="col col-75">
@@ -104,20 +47,18 @@
 
 <!--TAB-Section-->
 	<div id="footer">
-		<div class="tabs-icon-top tabs test3">
-			<a class="tab-item" onclick="currentPage.loadPage('full')"> <i id ='full' class="icon ion-ios-list"></i>
+		<div class="tabs-icon-top tabs bar-footer test3">
+			<a class="tab-item" onclick="currentPage.loadPage('full')"> <i id ='full' class="icon ion-ios-list colorItems"></i>
 				<p>Full</p></a>
 			<!--<a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
-			<a class="tab-item" onclick="currentPage.loadPage('mngt')"> <i id ="mngt" class="icon ion-ios-folder"></i>
+			<a class="tab-item" onclick="currentPage.loadPage('mngt')"> <i id ="mngt" class="icon ion-ios-folder colorItems"></i>
 				<p>Manage</p></a>
 			<!-- <a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
-			<a class="tab-item" onclick="currentPage.loadPage('options')"> <i id ="options" class="icon ion-ios-gear"></i>
+			<a class="tab-item" onclick="currentPage.loadPage('options')"> <i id ="options" class="icon ion-ios-gear colorItems"></i>
 				<p>Options</p></a>
 			<!-- <a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
-			<a class="tab-item" onclick="currentPage.loadPage('help')" > <i id ="help" class="icon ion-ios-help"></i>
+			<a class="tab-item" onclick="currentPage.loadPage('help')" > <i id ="help" class="icon ion-ios-help colorItems" ></i>
 				<p>Help</p></a>
 			<!-- <a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
 		</div>
 	</div>
-
-	

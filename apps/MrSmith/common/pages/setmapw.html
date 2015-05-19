@@ -7,14 +7,14 @@
 			<!--Eingabetext-->
 			<div class="list list-insert">
 				<label class="item item-input">
-					<input type="text" placeholder="Enter new Password">
+					<input type="password" id="pw" placeholder="Enter new Password">
 				</label>
 				<label class="item item-input">
-					<input type="text" placeholder="Confirm Password">
+					<input type="password" id="cpw" placeholder="Confirm Password">
 				</label>
 				<div class="padding-vertical">
 					<p align="right">
-						<button onclick="currentPage.loadPage('full')" class="button button-calm btntxtcolor" >
+						<button onclick="currentPage.mapwSetzen()" class="button button-calm btntxtcolor" >
 							<btntxtcolor>
 								go
 							</btntxtcolor>
@@ -26,21 +26,20 @@
 
 		<!--TAB-Section-->
 	<div id="footer">
-		<div class="tabs-icon-top tabs test3">
-			<a class="tab-item" onclick="currentPage.loadPage('full')"> <i id ='full' class="icon ion-ios-list"></i>
+		<div class="tabs-icon-top tabs bar-footer test3">
+			<a class="tab-item"> <i id ='full' class="icon ion-ios-list-outline colorItems"></i>
 				<p>Full</p></a>
-			<!--<a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
-			<a class="tab-item" onclick="currentPage.loadPage('mngt')"> <i id ="mngt" class="icon ion-ios-folder"></i>
+			
+			<a class="tab-item"> <i id ="mngt" class="icon ion-ios-folder-outline colorItems"></i>
 				<p>Manage</p></a>
-			<!-- <a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
-			<a class="tab-item" onclick="currentPage.loadPage('options')"> <i id ="options" class="icon ion-ios-gear"></i>
+			
+			<a class="tab-item"> <i id ="options" class="icon ion-ios-gear-outline colorItems"></i>
 				<p>Options</p></a>
-			<!-- <a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
-			<a class="tab-item" onclick="currentPage.loadPage('help')" > <i id ="help" class="icon ion-ios-help"></i>
+			
+			<a class="tab-item" onclick="currentPage.loadPage('help')" > <i id ="help" class="icon ion-ios-help colorItems" ></i>
 				<p>Help</p></a>
-			<!-- <a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
+		
 		</div>
 	</div>
-
 
 	

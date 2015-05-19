@@ -1,3 +1,6 @@
 [{
-	"hashwert": "Facebook"
+	"hashwert": "sa0Z",
+	"salt": "",
+	"iteration": 5000,
+	"lengthPW": 4
 }]

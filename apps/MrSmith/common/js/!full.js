@@ -18,10 +18,10 @@ currentPage.init = function() {
 	WL.Logger.debug("full :: init");
 
 	$.getJSON("dienste.json", function(result) {
-		list=result;
+		//list=result;
 		$.each(result, function(i, field) {
-			$("#fullList").append(
-					'<a class="item item-avatar" href="#" onclick="currentPage.dienstladen('
+			$("#list").append(
+					'<a class="item item-avatar  listColor " href="#" onclick="currentPage.dienstladen('
 							+ "'" + i + "'" + ')"> <img src="'
 							+ field.logo + '"><h2>' + field.dienstname
 							+ '</h2> </a>');

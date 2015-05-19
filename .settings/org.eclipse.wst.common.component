@@ -3,6 +3,7 @@
         <wb-resource deploy-path="/" source-path="/apps/MrSmithNew/common"/>
         <wb-resource deploy-path="/" source-path="/apps/MrSmith/common"/>
         <wb-resource deploy-path="/" source-path="/apps/MrSmith/android"/>
+        <wb-resource deploy-path="/" source-path="/apps/MrSmith/iphone"/>
         <property name="context-root" value="MobleFirstProjekt"/>
     </wb-module>
 </project-modules>

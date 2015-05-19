@@ -3,6 +3,7 @@ currentPage = {};
 currentPage.init = function(){
 	WL.Logger.debug("Edit Account :: init");
 	$("#pageDescr").html('Edit account');
+//einfuegen hier
 };
 
 currentPage.loadPage = function(pageName){
@@ -17,6 +18,21 @@ currentPage.loadPage = function(pageName){
 	});
 };
 
+function editDelete() {
+	var x;
+	if (confirm("Are you sure?") == true) {
+		x = "done";
+		//Account löschen
+		currentPage.loadPage('mngt');
+	} else {
+		x = "cancelled";
+	}
+	document.getElementById("demo").innerHTML = x;
+}
+
+function showPw() {
+	alert("YOUR PW");
+}
 
 currentPage.back = function(){
 	WL.Logger.debug("Edit account :: back");

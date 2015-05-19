@@ -3,6 +3,7 @@ currentPage = {};
 currentPage.init = function(){
 	WL.Logger.debug("NewAccount :: init");
 	$("#pageDescr").html('New account');
+	
 };
 
 currentPage.loadPage = function(pageName){

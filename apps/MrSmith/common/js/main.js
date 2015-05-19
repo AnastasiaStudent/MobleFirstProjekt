@@ -14,33 +14,69 @@
 var pagesHistory = [];
 var currentPage = {};
 var path = "";
+var mapw;
+var indexGlobal;
+var userIndexGlobal;
 
 function wlCommonInit() {
-	var pageName="start";
+	var pageName;
+	var hashwert = JSON.parse(localStorage.mapw)[0].hashwert;
+	//servicesCopy();
 	// Special case for Windows Phone 8 only.
 	if (WL.Client.getEnvironment() == WL.Environment.WINDOWS_PHONE_8) {
 		path = "/www/default/";
 	}
 
-	$.getJSON("App.json", function(result) {
-		$.each(result, function(i, field) {
-			var hashwert = field.hashwert;
-			if (hashwert == null) {
-				pageName = "setmapw";
-			} else {
-				pageName = "start";
+	if (hashwert.length == 0) {
+		pageName = "setmapw";
+} else {
+			pageName = "start";
 			}
-
-		});
-
-	});
-
+			
 	$("#pagePort").load(path + "pages/" + pageName + ".html", function() {
-		$.getScript(path + "js/" + pageName + ".js", function() {
-			if (currentPage.init) {
-				currentPage.init();
-			}
-		});
-	});
+				$.getScript(path + "js/" + pageName + ".js", function() {
+					if (currentPage.init) {
+						currentPage.init();
+					}
+				});
+	
 
+		
+
+	});
 }
+getMApw = function(){
+	return this.mapw;
+}
+
+setMApw = function(newMapw){
+	this.mapw=newMapw;
+}
+
+//function servicesCopy() {
+//	localStorage.removeItem("platforms");
+//if (localStorage.platforms == null || localStorage.platforms == 'null' || localStorage.platforms === 'undefined' )
+//	{
+//	//alert("nicht vorhanden");
+//	 var platforms = (function () {
+//	        var json = null;
+//	        $.getJSON("platforms.json", function(result) {
+//	        	
+//	        	localStorage.setItem("platforms", JSON.stringify(result));
+//	   
+//	        });
+//	       
+//	        return json;
+//	    })();
+//    
+//   localStorage.setItem("platforms", platforms);
+// 
+//    WL.Logger.debug("main :: json loaded from file");
+//   
+//	}
+
+//var restoredSession = JSON.parse(localStorage.getItem('platforms'));
+//alert(restoredSession[0].user[restoredSession[0].user.length]="mikimaus");
+//localStorage.setItem("platforms", JSON.stringify(restoredSession));
+
+//}

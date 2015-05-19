@@ -67,6 +67,10 @@ btntxtcolor {
 	/*color:black;*/
 background-color:black;
 border-color:#ccff33;
+
+}
+.colorItems{
+	color: #ccff33;
 }
 .listColor{
 	background-color: #192533;
@@ -80,3 +84,14 @@ border-color:#ccff33;
 .mrScolor{
 	color: #CCFF33;
 }
+/**/
+/*footer{
+	position:absolute;
+	right:0;
+	bottom:0;
+	left:0;
+	padding:1rem;
+	background-color:yellow;
+	text-align:center;
+}*/
+

@@ -5,6 +5,11 @@ currentPage.init = function(){
 	$("#pageDescr").html('Manage list');
 //$('#plus').show();
 	$("#plus").css("visibility", "visible");
+	var dienste = JSON.parse(localStorage.getItem('services'));
+	$.each(dienste, function(i, field) {
+		if (field.user.length > 0){
+	$('#mngtList').append('<a onclick="currentPage.serviceSelect('+ i + ')" class="item item-avatar listColor " href="#"> <img src="' + field.logo +'"> <h2>'+ field.dienstname +' </h2> <h3>' + field.dienstbeschreibenug +'</h3> </a>');
+		}});
 };
 
 currentPage.loadPage = function(pageName){
@@ -19,7 +24,11 @@ currentPage.loadPage = function(pageName){
 		});
 	});
 };
-
+currentPage.serviceSelect = function (index){
+	indexGlobal=index;
+	currentPage.loadPage('mngtuser');
+	
+}
 
 currentPage.back = function(){
 	WL.Logger.debug("Mngt :: back");
