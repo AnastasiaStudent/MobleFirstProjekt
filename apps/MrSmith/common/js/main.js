@@ -38,10 +38,7 @@ function wlCommonInit() {
 					if (currentPage.init) {
 						currentPage.init();
 					}
-				});
-	
-
-		
+				});		
 
 	});
 }
@@ -52,31 +49,3 @@ getMApw = function(){
 setMApw = function(newMapw){
 	this.mapw=newMapw;
 }
-
-//function servicesCopy() {
-//	localStorage.removeItem("platforms");
-//if (localStorage.platforms == null || localStorage.platforms == 'null' || localStorage.platforms === 'undefined' )
-//	{
-//	//alert("nicht vorhanden");
-//	 var platforms = (function () {
-//	        var json = null;
-//	        $.getJSON("platforms.json", function(result) {
-//	        	
-//	        	localStorage.setItem("platforms", JSON.stringify(result));
-//	   
-//	        });
-//	       
-//	        return json;
-//	    })();
-//    
-//   localStorage.setItem("platforms", platforms);
-// 
-//    WL.Logger.debug("main :: json loaded from file");
-//   
-//	}
-
-//var restoredSession = JSON.parse(localStorage.getItem('platforms'));
-//alert(restoredSession[0].user[restoredSession[0].user.length]="mikimaus");
-//localStorage.setItem("platforms", JSON.stringify(restoredSession));
-
-//}

@@ -18,18 +18,16 @@
 				<br />
 				<div class="list list-insert">
 					<label class="item item-input">
-						<input type="text" placeholder="Username">
+						<input id="userName" type="text" placeholder="Username">
 					</label>
 					<div class="list">
 						<label class="item item-input item-select">
 							<div class="input-label">
 								Service
 							</div>
-							<select>
-								<option selected>Facebook</option>
-								<option>Xing</option>
-								<option>web.de</option>
-								<option>live.de</option>
+							<select id="selectServices">
+							<option selected>Select prefered service: </option>
+								
 							</select> </label>
 					</div>
 					
@@ -55,7 +53,7 @@
 	<div id="footer">
 		<div class="tabs-icon-top tabs bar-footer test3">
 			<a class="tab-item" onclick="currentPage.loadPage('full')"> <i id ='full' class="icon ion-ios-list colorItems"></i>
-				<p>Full</p></a>
+				<p>Logins</p></a>
 			<!--<a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
 			<a class="tab-item" onclick="currentPage.loadPage('mngt')"> <i id ="mngt" class="icon ion-ios-folder colorItems"></i>
 				<p>Manage</p></a>

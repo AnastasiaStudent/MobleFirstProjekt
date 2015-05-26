@@ -2,7 +2,6 @@ currentPage = {};
 var InAppBrowserReference;
 var dienste;
 var users;
-var codeText;
 
 currentPage.init = function(){
 	
@@ -23,6 +22,19 @@ currentPage.dienstladen = function(userIndex) {
 	userIndexGlobal=userIndex;
 	// Wait for device API libraries to load
 	//document.addEventListener("deviceready", openInAppBrowser(dienstName),false);
+	openInAppBrowser();
+};
+
+function openInAppBrowser() {
+	InAppBrowserReference = window.open(dienste[indexGlobal].url, '_blank', 'clearcache=yes','clearsessioncache=yes','closebuttoncaption=close');
+//	InAppBrowserReference = window.open(dienste[indexGlobal].url, '_blank', 'clearcache=yes, clearsessioncache=yes, closebuttoncaption=close');
+	
+	InAppBrowserReference.addEventListener('loaderror', closeInAppBrowserErr);
+	InAppBrowserReference.addEventListener('loadstop', scriptEinfuegen);
+	InAppBrowserReference.addEventListener('exit', closeInAppBrowser);
+	
+};
+function scriptEinfuegen() {
 	var feldEmail;
 	var feldPass;
 	var user;
@@ -60,38 +72,27 @@ var mapw = getMApw();
 var pw = mapw.concat(user);
 
 var hashJSON = JSON.parse(localStorage.mapw)[0].hashwert;
+alert(pw);
 var mypbkdf2 = new PBKDF2(pw, hashJSON, iteration, length, numbers, characters, letters);
 var result_callback = function(passGen) {
 pass=passGen;
-codeText = feldEmail + "'" + user + "'; " + feldPass + "'" + pass
+alert(pass);
+var codeText = feldEmail + "'" + email + "'; " + feldPass + "'" + pass
 + "'; ";
-openInAppBrowser();
+alert(codeText);
+InAppBrowserReference.executeScript({
+code : codeText
+}, function() {
+alert(pass);
+	 
+});
+
 };
 
 mypbkdf2.deriveKey(result_callback);
 
 //InAppBrowserReference.removeEventListener('loadstop', scriptEinfuegen);
 
-	
-	
-};
-
-function openInAppBrowser() {
-	InAppBrowserReference = window.open(dienste[indexGlobal].url, '_blank', 'closebuttoncaption=close,clearcache=yes,clearsessioncache=yes,');
-//	InAppBrowserReference = window.open(dienste[indexGlobal].url, '_blank', 'clearcache=yes, clearsessioncache=yes, closebuttoncaption=close');
-	
-	InAppBrowserReference.addEventListener('loaderror', closeInAppBrowserErr);
-	InAppBrowserReference.addEventListener('loadstop', scriptEinfuegen);
-	InAppBrowserReference.addEventListener('exit', closeInAppBrowser);
-	
-};
-function scriptEinfuegen() {
-	InAppBrowserReference.executeScript({
-		code : codeText
-		}, function() {
-		alert(pass);
-			 
-		});
 };
 function closeInAppBrowserErr(event) {
 	if (event.url.match("/close")) {

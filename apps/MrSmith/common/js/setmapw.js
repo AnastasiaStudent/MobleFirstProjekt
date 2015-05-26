@@ -31,30 +31,25 @@ currentPage.mapwSetzen = function (){
 	var cpw = document.getElementById("cpw").value;
 	
 	var mypbkdf2 = new PBKDF2(pw, "", iteration, length,numbers,characters,letters);
-	
 	var result_callback = function(key) {
-		
 		addHash(key);
 };
 
 if (pw === cpw && pw != "" && pw.length >= 12) {
 	setMApw(pw);	
+	mypbkdf2.deriveKey(result_callback);
 	currentPage.loadPage('mngt');
-
-mypbkdf2.deriveKey(result_callback);
 } else if (pw !== cpw ){
 
-alert("ungleich");
+alert("Your entries do not match exactly. Please try again.");
 
 }else if (pw == "" ){
 
-	alert("muss feld");
+	alert("Please enter your new password twice.");
 
 	}
 else if (pw.length < 12 ){
-
-	alert("zu kurz");
-
+	alert("Your password must be at least 12 characters long. Please try another.");
 	}
 
 };

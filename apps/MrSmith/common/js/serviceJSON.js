@@ -1,151 +1,146 @@
-localStorage.removeItem('services');
-if (typeof(Storage) != "undefined" && !('services' in localStorage)) {
-    // Store
-    localStorage.setItem('services', JSON.stringify([{
-    	"dienstname": "Facebook",
-    	"dienstbeschreibenug": "Facebook is a social utility that connects people with friends...",
-    	"url": "https://m.facebook.com/",
-    	"logo": "images/service_icons/facebook.png",
-    	"namefeld_identifikator": "name",
-    	"namefeld": "email",
-    	"passfeld_identifikator": "name",
-    	"passfeld": "pass",
-    	"user": ["anastasiabaron@web.de"], 
-    	"lengthpass": 12,
-    	"letters": 0,
-    	"numbers":0,
-    	"characters":0,
-    	"iteration":100
-},{
-	"dienstname": "google",
-	"dienstbeschreibenug": "RELAX ist der ideale, zentrale Ort für Ihre Unterrichtsmaterialien. Sie können ...",
-	"url": "https://relax.reutlingen-university.de",
-	"logo": "images/service_icons/google.png",
-	"namefeld_identifikator": "id",
-	"namefeld": "login_username",
-	"passfeld_identifikator": "id",
-	"passfeld": "login_password",
-	"user": [],
-	"lengthpass": "12",
-	"letters": "",
-	"numbers":"",
-	"characters":"",
-	"iteration":"50"
-},{
-	"dienstname": "hotmail",
-	"dienstbeschreibenug": "RELAX ist der ideale, zentrale Ort für Ihre Unterrichtsmaterialien. Sie können ...",
-	"url": "https://relax.reutlingen-university.de",
-	"logo": "images/service_icons/hotmail.png",
-	"namefeld_identifikator": "id",
-	"namefeld": "login_username",
-	"passfeld_identifikator": "id",
-	"passfeld": "login_password",
-	"user": [],
-	"lengthpass": "12",
-	"letters": "",
-	"numbers":"",
-	"characters":"",
-	"iteration":"50"
-},{
-	"dienstname": "soundcloud",
-	"dienstbeschreibenug": "RELAX ist der ideale, zentrale Ort für Ihre Unterrichtsmaterialien. Sie können ...",
-	"url": "https://relax.reutlingen-university.de",
-	"logo": "images/service_icons/soundcloud.png",
-	"namefeld_identifikator": "id",
-	"namefeld": "login_username",
-	"passfeld_identifikator": "id",
-	"passfeld": "login_password",
-	"user": [],
-	"lengthpass": "12",
-	"letters": "",
-	"numbers":"",
-	"characters":"",
-	"iteration":"50"
-},{
-	"dienstname": "web",
-	"dienstbeschreibenug": "RELAX ist der ideale, zentrale Ort für Ihre Unterrichtsmaterialien. Sie können ...",
-	"url": "https://relax.reutlingen-university.de",
-	"logo": "images/service_icons/web.png",
-	"namefeld_identifikator": "id",
-	"namefeld": "login_username",
-	"passfeld_identifikator": "id",
-	"passfeld": "login_password",
-	"user": [],
-	"lengthpass": "12",
-	"letters": "",
-	"numbers":"",
-	"characters":"",
-	"iteration":"50"
-},{
-	"dienstname": "Relax",
-	"dienstbeschreibenug": "RELAX ist der ideale, zentrale Ort für Ihre Unterrichtsmaterialien. Sie können ...",
-	"url": "https://relax.reutlingen-university.de",
-	"logo": "images/service_icons/relax.png",
-	"namefeld_identifikator": "id",
-	"namefeld": "login_username",
-	"passfeld_identifikator": "id",
-	"passfeld": "login_password",
-	"user": [],
-	"lengthpass": "12",
-	"letters": "",
-	"numbers":"",
-	"characters":"",
-	"iteration":"50"
-},{
-	"dienstname": "xing",
-	"dienstbeschreibenug": "RELAX ist der ideale, zentrale Ort für Ihre Unterrichtsmaterialien. Sie können ...",
-	"url": "https://relax.reutlingen-university.de",
-	"logo": "images/service_icons/xing.png",
-	"namefeld_identifikator": "id",
-	"namefeld": "login_username",
-	"passfeld_identifikator": "id",
-	"passfeld": "login_password",
-	"user": [],
-	"lengthpass": "12",
-	"letters": "",
-	"numbers":"",
-	"characters":"",
-	"iteration":"50"
-}
-]));
+//localStorage.removeItem('services');
+if (typeof (Storage) != "undefined" && !('services' in localStorage)) {
+	// Store
+	localStorage
+			.setItem(
+					'services',
+					JSON
+							.stringify([
+									{
+										"dienstname" : "Facebook",
+										"dienstbeschreibenug" : "Facebook is a social utility that connects people with friends.",
+										"url" : "https://m.facebook.com/",
+										"logo" : "images/service_icons/facebook.png",
+										"namefeld_identifikator" : "name",
+										"namefeld" : "email",
+										"passfeld_identifikator" : "name",
+										"passfeld" : "pass",
+										"user" : [],
+										"lengthpass" : 12,
+										"letters" : 1,
+										"numbers" : 1,
+										"characters" : 1,
+										"iteration" : 5000
+									},
+									{
+										"dienstname" : "Google",
+										"dienstbeschreibenug" : "It is the most-used search engine on the World Wide Web.",
+										"url" : "https://accounts.google.com/ServiceLogin?hl=de&continue=https://www.google.de/",
+										"logo" : "images/service_icons/google.png",
+										"namefeld_identifikator" : "id",
+										"namefeld" : "Email",
+										"passfeld_identifikator" : "id",
+										"passfeld" : "Passwd",
+										"user" : [],
+										"lengthpass" : 12,
+										"letters" : 1,
+										"numbers" : 1,
+										"characters" : 1,
+										"iteration" : 5000
+									},
+									{
+										"dienstname" : "Hotmail",
+										"dienstbeschreibenug" : "Hotmail is a free e-mail service provided by Microsoft.",
+										"url" : "https://mail.live.com/m/",
+										"logo" : "images/service_icons/hotmail.png",
+										"namefeld_identifikator" : "id",
+										"namefeld" : "i0116",
+										"passfeld_identifikator" : "id",
+										"passfeld" : "i0118",
+										"user" : [],
+										"lengthpass" : 12,
+										"letters" : 1,
+										"numbers" : 1,
+										"characters" : 1,
+										"iteration" : 5000
+									},
+									{
+										"dienstname" : "Relax",
+										"dienstbeschreibenug" : "RELAX ist der ideale, zentrale Ort für Ihre Unterrichtsmaterialien.",
+										"url" : "https://relax.reutlingen-university.de",
+										"logo" : "images/service_icons/relax.png",
+										"namefeld_identifikator" : "id",
+										"namefeld" : "login_username",
+										"passfeld_identifikator" : "id",
+										"passfeld" : "login_password",
+										"user" : [],
+										"lengthpass" : 12,
+										"letters" : 1,
+										"numbers" : 1,
+										"characters" : 1,
+										"iteration" : 5000
+									},
+									{
+										"dienstname" : "Soundcloud",
+										"dienstbeschreibenug" : "SoundCloud is a Swedish online audio distribution platform based in Berlin, Germany, that enables its users to upload, record, promote, and share their originally-created sounds.",
+										"url" : "https://soundcloud.com/login",
+										"logo" : "images/service_icons/soundcloud.png",
+										"namefeld_identifikator" : "id",
+										"namefeld" : "site-username",
+										"passfeld_identifikator" : "id",
+										"passfeld" : "site-password",
+										"user" : [],
+										"lengthpass" : 12,
+										"letters" : 1,
+										"numbers" : 1,
+										"characters" : 1,
+										"iteration" : 5000
+									},
+									{
+										"dienstname" : "WEB.DE",
+										"dienstbeschreibenug" : "WEB.DE ist ein deutsches Internetportal.",
+										"url" : "https://mm.web.de/login",
+										"logo" : "images/service_icons/web.png",
+										"namefeld_identifikator" : "id",
+										"namefeld" : "username",
+										"passfeld_identifikator" : "id",
+										"passfeld" : "password",
+										"user" : [],
+										"lengthpass" : 12,
+										"letters" : 1,
+										"numbers" : 1,
+										"characters" : 1,
+										"iteration" : 5000
+									},
+								
+									{
+										"dienstname" : "Xing",
+										"dienstbeschreibenug" : "XING is a social software platform for enabling a small-world network for professionals.",
+										"url" : "https://touch.xing.com/session/new.",
+										"logo" : "images/service_icons/xing.png",
+										"namefeld_identifikator" : "id",
+										"namefeld" : "user_login_email_or_username",
+										"passfeld_identifikator" : "id",
+										"passfeld" : "user_login_password",
+										"user" : [],
+										"lengthpass" : 12,
+										"letters" : 1,
+										"numbers" : 1,
+										"characters" : 1,
+										"iteration" : 5000
+									} ]));
 } else {
-    alert("SERVICES: Daten werden nicht ueberschreiben.");
+	alert("SERVICES: Daten werden nicht ueberschreiben.");
 }
 
-			function addUser(service, userToAdd) {
-				//Daten aus localStorage holen
-				var dienste = JSON.parse(localStorage.services);
+function addUser(index, userToAdd) {
+	// Daten aus localStorage holen
+	var dienste = JSON.parse(localStorage.services);
 
-				//iterieren ueber JSON_array: key := 0, 1, ..., n
-				for (key in dienste) {
-					if (service === dienste[key].dienstname) {
-						//ein Wert in user-Feld anhaengen
-						dienste[key].user.push(userToAdd);
-					}
-				}
-				//Daten in den JSON_array schreiben
-				localStorage.setItem('services', JSON.stringify(dienste));
-			}
+	// ein Wert in user-Feld anhaengen
+	dienste[index].user.push(userToAdd);
 
-			function deleteUser(service, userToDelete) {
-				//Daten aus localStorage holen
-				var dienste = JSON.parse(localStorage.services);
-				var index = -1;
+	// Daten in den JSON_array schreiben
+	localStorage.setItem('services', JSON.stringify(dienste));
+}
 
-				//iterieren ueber JSON_array: key := 0, 1, ..., n
-				for (key in dienste) {
-					if (service === dienste[key].dienstname) {
+function deleteUser(indexService, indexUser) {
+	// Daten aus localStorage holen
+	var dienste = JSON.parse(localStorage.services);
 
-						index = dienste[key].user.indexOf(userToDelete);
-						if (index >= 0) {
-							alert("DELETE: " + dienste[key].user[index]);
-							dienste[key].user.splice(index, index);
-						}
-					}
+	alert("DELETE: " + dienste[indexService].user[indexUser] + " : " + indexUser);
+	dienste[indexService].user.splice(indexUser, 1);
 
-				}
-				//Daten in den JSON_array schreiben
-				localStorage.setItem('services', JSON.stringify(dienste));
-			}
-
-			
+	// Daten in den JSON_array schreiben
+	localStorage.setItem('services', JSON.stringify(dienste));
+}

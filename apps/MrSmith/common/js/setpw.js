@@ -3,7 +3,14 @@ currentPage = {};
 currentPage.init = function(){
 	WL.Logger.debug("Setpw :: init");
 	$("#pageDescr").html('Finished');
+	var pwField = document.getElementById("servicePW");
+	pwField.value = servicePW;
 };
+
+saveInServices = function(){
+	addUser(indexGlobal, user);
+	currentPage.loadPage("mngt");
+}
 
 currentPage.loadPage = function(pageName){
 	$("#plus").css("visibility", "hidden");

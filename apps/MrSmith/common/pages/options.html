@@ -4,12 +4,9 @@
 		<br />
 		<div class="test has-header has-footer padding">
 			<div class="list ">
-				<p>General</p>
-				<a class="item item-avatar listColor item-icon-left" href="#"> <i class="icon ion-ios-refresh"></i> <h2> Refresh providerlist</h2> <h3> get the newest settings</h3> </a>
-				<br/><p>Danger</p>
-				<a onclick="currentPage.loadPage('setmapw')" class="item item-avatar listColor item-icon-left" href="#"> <i class="icon ion-ios-trash"></i> <h2> Restore factory-defaults</h2> <h3> all entries will be deleted</h3> </a>
+				<p>Danger</p>
+				<a onclick="delAll()" class="item item-avatar listColor item-icon-left" href="#"> <i class="icon ion-ios-trash"></i> <h2> Restore factory-defaults</h2> <h3> all entries will be deleted</h3> </a>
 				<br/><p>Others</p>
-				<a class="item item-avatar listColor item-icon-left" href="#"> <i class="icon ion-social-facebook"></i> <h2> Share</h2> <h3> on Facebook</h3> </a>
 				<a onclick="currentPage.loadPage('aboutapp')" class="item item-avatar listColor item-icon-left" href="#"> <i class="icon ion-document"></i> <h2>About this app</h2> <h3> V1.0 </h3> </a>
 				<a onclick="currentPage.loadPage('aboutus')" class="item item-avatar listColor item-icon-left" href="#"> <i class="icon ion-person-stalker"></i> <h2>About us</h2> <h3> The Project-Team </h3> </a>
 			</div>
@@ -17,19 +14,18 @@
 		
 		<!--TAB-Section-->
 	<div id="footer">
-		<div class="tabs-icon-top tabs test3">
-			<a class="tab-item" onclick="currentPage.loadPage('full')"> <i id ='full' class="icon ion-ios-list"></i>
-				<p>Full</p></a>
+		<div class="tabs-icon-top tabs bar-footer test3">
+			<a class="tab-item" onclick="currentPage.loadPage('full')"> <i id ='full' class="icon ion-ios-list colorItems"></i>
+				<p>Logins</p></a>
 			<!--<a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
-			<a class="tab-item" onclick="currentPage.loadPage('mngt')"> <i id ="mngt" class="icon ion-ios-folder"></i>
+			<a class="tab-item" onclick="currentPage.loadPage('mngt')"> <i id ="mngt" class="icon ion-ios-folder colorItems"></i>
 				<p>Manage</p></a>
 			<!-- <a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
-			<a class="tab-item"> <i id ="options" class="icon ion-ios-gear-outline"></i>
+			<a class="tab-item"> <i id ="options" class="icon ion-ios-gear-outline colorItems"></i>
 				<p>Options</p></a>
 			<!-- <a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
-			<a class="tab-item" onclick="currentPage.loadPage('help')"> <i id ="help" class="icon ion-ios-help"></i>
+			<a class="tab-item" onclick="currentPage.loadPage('help')" > <i id ="help" class="icon ion-ios-help colorItems" ></i>
 				<p>Help</p></a>
 			<!-- <a class="tab-item"> <i class="icon ion-ios-list-outline"></i><p>Full</p></a>-->
 		</div>
 	</div>
-		

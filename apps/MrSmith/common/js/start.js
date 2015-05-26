@@ -3,11 +3,15 @@ currentPage = {};
 currentPage.init = function(){
 	WL.Logger.debug("Start :: init");
 	$("#pageDescr").html('Start');
-	//$( "#footer" ).css( "display", "none" );
-	//$('#footer').hide();
+	$("#plus_kreuz").addClass("button ion-close-circled button-clear");
+	$("#plus_kreuz").css("visibility", "visible");
+	$("#plus_kreuz").attr("onclick", "delAll()")
 };
 
 currentPage.loadPage = function(pageName){
+	$("#plus_kreuz").removeClass("button ion-close-circled button-clear");
+	$("#plus_kreuz").css("visibility", "hidden");
+	$("#plus_kreuz").attr("onclick", "")
 	WL.Logger.debug("Start :: loadPage :: pageName: " + pageName);
 	pagesHistory.push("start");
 	$("#pagePort").load(path + "pages/" + pageName + ".html", function(){
@@ -26,10 +30,12 @@ currentPage.validate  = function(){
 	var letters = JSON.parse(localStorage.mapw)[0].letters;
 	var characters = JSON.parse(localStorage.mapw)[0].characters;
 	var masterPW = document.getElementById("mapw").value;
+	var pageName = "full";
 
 	var mypbkdf2 = new PBKDF2(masterPW, "", iteration, length,numbers,characters,letters);
 	var result_callback = function(hashNew) {
 		if (hashJSON === hashNew) {
+			setMApw(masterPW);
 			WL.Logger.debug("Start :: loadPage :: pageName: "
 					+ pageName);
 			currentPage.loadPage('full');
@@ -45,7 +51,6 @@ currentPage.validate  = function(){
 
 	
 function delAll() {
-
 	if (confirm("Are you sure?") == true) {
 		deleteHash();
 		
@@ -70,6 +75,9 @@ function delAll() {
 }
 
 currentPage.back = function(){
+	$("#plus_kreuz").removeClass("button ion-close-circled button-clear");
+	$("#plus_kreuz").css("visibility", "hidden");
+	$("#plus_kreuz").attr("onclick", "")
 	WL.Logger.debug("Start :: back");
 	var pageName=pagesHistory.pop();
 	$("#pagePort").load(path + "pages/" + pageName + ".html", function(){

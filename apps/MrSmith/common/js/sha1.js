@@ -76,7 +76,7 @@ function rstr2hex(input, number, sign, capital) {
 	var s_capital = capital;
 
 	//password restriction length:
-	var s_n_anzahl = 2;
+	var s_n_anzahl = 0;
 	var s_s_anzahl = 0;
 	var s_c_anzahl = 0;
 	
@@ -85,11 +85,11 @@ function rstr2hex(input, number, sign, capital) {
 	var hasSign = 2;
 	
 	// var hex_tab = hexcase ? "!§$%&/()=?/*-+qwertzuiopasdfghjklyxcvbnm,;.:_" : "!+QWE§$RTZ%&UI,OP_A/(SD.:FG;H)=JKLY?/XCV*-BNM";
-	var hex_tab = "yxcvbnmasdfghjklqwertzuiop1234567890QWERTZUIOPASDFGHJKLYXCVBNM_-.,/<>(;:!§$%&)=?#+*~";
-	var hex_tab0 = "yxcvbnmasdfghjklqwertzuiopQWERTZUIOPASDFGHJKLYXCVBNM";
+	var hex_tab = "qQwWeErRtTzZuUiIoOpPaAsSdDfFgGhHjJkKlLyYxXcCvVbBnNmM1234567890_-.,/<>(;:!§$%&)=?#+*~";
+	var hex_tab0 = "qQwWeErRtTzZuUiIoOpPaAsSdDfFgGhHjJkKlLyYxXcCvVbBnNmM";
 	var hex_tab2 = "QWERTZUIOPASDFGHJKLYXCVBNM";
 	var hex_tab3 = "1234567890";
-	var hex_tab4 = "_-.,;:!$%&/<>()=?+*~";
+	var hex_tab4 = "_-.,;:!$%&/()?*~";
 	var output = "";
 	var x;
 	for (var i = 0; i < input.length; i++) {
@@ -103,7 +103,7 @@ function rstr2hex(input, number, sign, capital) {
 		} else {
 			
 			//adding numbers
-			if (s_number === 1 && s_n_anzahl > hasNumber) {
+			if (s_number === 1 && s_n_anzahl < hasNumber) {
 				
 				output += hex_tab0.charAt((x * 13) % 52) 
 						+ hex_tab3.charAt(x % 10);
@@ -115,11 +115,11 @@ function rstr2hex(input, number, sign, capital) {
 
 			}
 			//adding special characters
-			if (s_sign === 1 && s_s_anzahl > hasSign) {
+			if (s_sign === 1 && s_s_anzahl < hasSign) {
 				
 
 				output += hex_tab0.charAt((x * 13) % 52) 
-						+ hex_tab4.charAt(x % 21);
+						+ hex_tab4.charAt(x % 16);
 				//alert("SIGN output: " +  output);
 				hasSign++;
 			} else {
@@ -129,7 +129,7 @@ function rstr2hex(input, number, sign, capital) {
 			}
 			
 			//adding capital letters
-			if (s_capital === 1 && s_c_anzahl > hasCapital) {
+			if (s_capital === 1 && s_c_anzahl < hasCapital) {
 				
 				output += hex_tab0.charAt((x * 13) % 52) 
 				+ hex_tab2.charAt(x % 25);

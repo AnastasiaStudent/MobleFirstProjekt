@@ -1,4 +1,4 @@
-localStorage.removeItem('mapw');
+//localStorage.removeItem('mapw');
 
 if (typeof (Storage) != 'undefined' && !('mapw' in localStorage)) {
 	// Store
@@ -6,7 +6,7 @@ if (typeof (Storage) != 'undefined' && !('mapw' in localStorage)) {
 		"hashwert" : "",
 		"salt" : "",
 		"iteration" : 5000,
-		"lengthPW": 200,
+		"lengthPW": 20,
 		"letters": 1,
 		"numbers":1,
 		"characters":1

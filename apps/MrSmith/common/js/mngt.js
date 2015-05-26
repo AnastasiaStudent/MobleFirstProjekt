@@ -3,8 +3,10 @@ currentPage = {};
 currentPage.init = function(){
 	WL.Logger.debug("Mngt :: init");
 	$("#pageDescr").html('Manage list');
-//$('#plus').show();
-	$("#plus").css("visibility", "visible");
+	$("#plus_kreuz").addClass("button ion-plus button-clear");
+	$("#plus_kreuz").css("visibility", "visible");
+	$("#plus_kreuz").attr("onclick", "currentPage.loadPage('newaccount')")
+	
 	var dienste = JSON.parse(localStorage.getItem('services'));
 	$.each(dienste, function(i, field) {
 		if (field.user.length > 0){
@@ -12,8 +14,18 @@ currentPage.init = function(){
 		}});
 };
 
+currentPage.serviceSelect = function (index){
+	indexGlobal=index;
+	currentPage.loadPage('mngtuser');
+	
+}
+
+
 currentPage.loadPage = function(pageName){
-	$("#plus").css("visibility", "hidden");
+	$("#plus_kreuz").removeClass("button ion-close-circled button-clear");
+	$("#plus_kreuz").css("visibility", "hidden");
+	$("#plus_kreuz").attr("onclick", "")
+	
 	WL.Logger.debug("Mngt :: loadPage :: pageName: " + pageName);
 	pagesHistory.push("Mngt");
 	$("#pagePort").load(path + "pages/" + pageName + ".html", function(){
@@ -24,15 +36,12 @@ currentPage.loadPage = function(pageName){
 		});
 	});
 };
-currentPage.serviceSelect = function (index){
-	indexGlobal=index;
-	currentPage.loadPage('mngtuser');
-	
-}
 
 currentPage.back = function(){
 	WL.Logger.debug("Mngt :: back");
-	$("#plus").css("visibility", "hidden");
+	$("#plus_kreuz").removeClass("button ion-close-circled button-clear");
+	$("#plus_kreuz").css("visibility", "hidden");
+	$("#plus_kreuz").attr("onclick", "")
 	var pageName=pagesHistory.pop();
 	$("#pagePort").load(path + "pages/" + pageName + ".html", function(){
 		$.getScript(path + "js/"+ pageName+".js", function() {

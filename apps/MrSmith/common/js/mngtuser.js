@@ -4,10 +4,9 @@ currentPage.init = function(){
 	WL.Logger.debug("MngtUser :: init");
 	$("#pageDescr").html('Manage User');
 	var dienste = JSON.parse(localStorage.getItem('services'));
-	$.each(dienste, function(i, field) {
-		if (field.user.length > 0){
-	$('#mngtuserList').append('<a onclick="currentPage.userSelect('+ i + ')" class="item item-avatar listColor " href="#"> <img src="' + field.logo +'"> <h2>'+ field.dienstname +' </h2> <h3>' + field.dienstbeschreibenug +'</h3> </a>');
-		}});
+	$.each(dienste[indexGlobal].user, function(i, field) {	
+	$('#mngtuserList').append('<a onclick="currentPage.userSelect('+ i + ')" class="item item-avatar listColor " href="#"> <img src="' + dienste[indexGlobal].logo +'"> <h2>'+ field +' </h2> <h3>' + dienste[indexGlobal].dienstname +'</h3> </a>');
+		});
 };
 
 currentPage.userSelect = function (index){
