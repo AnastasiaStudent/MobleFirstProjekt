@@ -6,6 +6,7 @@ currentPage.init = function(){
 	$("#plus_kreuz").addClass("button ion-close-circled button-clear");
 	$("#plus_kreuz").css("visibility", "visible");
 	$("#plus_kreuz").attr("onclick", "delAll()")
+	//document.getElementById("mapw").value="password1234";
 };
 
 currentPage.loadPage = function(pageName){
@@ -23,6 +24,7 @@ currentPage.loadPage = function(pageName){
 	});
 };
 currentPage.validate  = function(){
+	toggleOverlay();
 	var hashJSON = JSON.parse(localStorage.mapw)[0].hashwert;
 	var iteration = JSON.parse(localStorage.mapw)[0].iteration;
 	var length = JSON.parse(localStorage.mapw)[0].lengthPW;
@@ -42,6 +44,7 @@ currentPage.validate  = function(){
 		} else {
 			alert("Your password is not correct!");
 		}
+		toggleOverlay();
 	};
 
 	mypbkdf2.deriveKey(result_callback);

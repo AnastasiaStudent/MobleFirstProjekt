@@ -3,7 +3,10 @@
 		<br />
 		<br />
 		<br />
-
+<style type="text/css">
+			@font-face { font-family: 'Ayuthaya';
+             src: url('fonts/Ayuthaya.ttf') format('truetype'); }
+			</style>
 		<div class="padding">
 
 			<!--Eingabetext-->
@@ -15,6 +18,9 @@
 				<br />
 				<div id="userName" class="item item-text-wrap" style="background-color: #CCFF33; color: #192533; border-color: #192533">
 				</div>
+				<br>
+				<div id="showPW" class="item item-text-wrap" style="font-family: Ayuthaya, Courier; visibility:hidden; background-color: #CCFF33; color: #192533; border-color: #192533">
+				</div>
 				<br />
 			
 
@@ -25,7 +31,9 @@
 								password
 							</btntxtcolor>
 						</button>
+						
 					</div>
+					
 					<div class="col col">
 						<button onclick="editDelete()" class="button button-assertive" >
 
@@ -33,8 +41,10 @@
 								delete
 							</btntxtcolor>
 						</button>
+						
 					</div>
 				</div>
+				
 				<div class="padding-vertical">
 					<p align="right">
 

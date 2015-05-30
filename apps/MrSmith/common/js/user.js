@@ -19,8 +19,13 @@ currentPage.init = function(){
 
 
 currentPage.dienstladen = function(userIndex) {
+	toggleOverlay();
 	WL.Logger.debug("full :: Dienstladen" + " - " + userIndex);
+//	$("#userList a").attr("onclick", "");
+//	$("#userList").css("visibility", "hidden");	
+//	$(this).css("visibility", "hidden");
 	userIndexGlobal=userIndex;
+	
 	// Wait for device API libraries to load
 	//document.addEventListener("deviceready", openInAppBrowser(dienstName),false);
 	var feldEmail;
@@ -33,6 +38,9 @@ currentPage.dienstladen = function(userIndex) {
 	else if (dienste[indexGlobal].namefeld_identifikator=="name"){
 		feldEmail = "document.getElementsByName('"+dienste[indexGlobal].namefeld+"')[0].value=";
 	}
+//	else if (dienste[indexGlobal].namefeld_identifikator=="type"){
+//		feldEmail ="$('"+dienste[indexGlobal].namefeld+":first').val(";
+//	}
 	else {
 		
 	}
@@ -40,8 +48,13 @@ currentPage.dienstladen = function(userIndex) {
 	if(dienste[indexGlobal].passfeld_identifikator=="id"){
 		feldPass = "document.getElementById("+"'"+dienste[indexGlobal].passfeld+"').value=";
 	}
-	else if (dienste[indexGlobal].namefeld_identifikator=="name"){
+	else if (dienste[indexGlobal].passfeld_identifikator=="name"){
 		feldPass = "document.getElementsByName('"+dienste[indexGlobal].passfeld+"')[0].value=";
+	}
+	else if (dienste[indexGlobal].passfeld_identifikator=="type"){
+//		feldPass="var inputs = document.getElementsByTagName('input'); for(var i = 0; i < inputs.length; i++) { if(inputs[i].type.toLowerCase() == 'password') {inputs[i].value='Y6Y~YQY8Y$YD';}};";
+		feldPass="var inputs = document.getElementsByTagName('input'); for(var i = 0; i < inputs.length; i++) { if(inputs[i].type.toLowerCase() == 'password') {inputs[i].value='";
+		
 	}
 	else {
 		
@@ -50,21 +63,28 @@ currentPage.dienstladen = function(userIndex) {
 	user = users[userIndexGlobal];
 	
 
-	var iteration = JSON.parse(localStorage.services)[0].iteration;
-	var length = JSON.parse(localStorage.services)[0].lengthpass;
-	var numbers = JSON.parse(localStorage.services)[0].numbers;
-	var letters = JSON.parse(localStorage.services)[0].letters;
-	var characters = JSON.parse(localStorage.services)[0].characters;
-
+	var iteration = dienste[indexGlobal].iteration;
+	var length = dienste[indexGlobal].lengthpass;
+	var numbers = dienste[indexGlobal].numbers;
+	var letters = dienste[indexGlobal].letters;
+	var characters = dienste[indexGlobal].characters;
 var mapw = getMApw();
-var pw = mapw.concat(user);
+var input = mapw.concat(user);
 
 var hashJSON = JSON.parse(localStorage.mapw)[0].hashwert;
-var mypbkdf2 = new PBKDF2(pw, hashJSON, iteration, length, numbers, characters, letters);
+var slat= hashJSON.concat(dienste[indexGlobal].dienstname);
+var mypbkdf2 = new PBKDF2(input, slat, iteration, length, numbers, characters, letters);
 var result_callback = function(passGen) {
 pass=passGen;
+if(dienste[indexGlobal].passfeld_identifikator=="type"){
+	codeText = feldEmail + "'" + user + "'; " + feldPass +pass+"';}};";
+}
+else{
 codeText = feldEmail + "'" + user + "'; " + feldPass + "'" + pass
 + "'; ";
+}
+
+toggleOverlay();
 openInAppBrowser();
 };
 
@@ -75,6 +95,9 @@ mypbkdf2.deriveKey(result_callback);
 	
 	
 };
+
+
+
 
 function openInAppBrowser() {
 	InAppBrowserReference = window.open(dienste[indexGlobal].url, '_blank', 'closebuttoncaption=close,clearcache=yes,clearsessioncache=yes,');
@@ -87,12 +110,31 @@ function openInAppBrowser() {
 };
 function scriptEinfuegen() {
 	InAppBrowserReference.executeScript({
+		//code : "$(document).ready(function(){$(':password').val('q7q)qUf1f!fX');});"
+		//code:  "for(i=0; i<document.getElementsByTagName('input').length; i++){ if (document.getElementsByTagName('input')[i].placeholder=='Password'){ alert(document.getElementsByTagName('input')[i].name.length); } else {}};"
+		//code: "document.getElementsByName('password')[0].value='adssadfffdsccwewc';"
 		code : codeText
 		}, function() {
-		alert(pass);
+		//alert(codeText);
 			 
 		});
 };
+//function scriptEinfuegen() {
+//	InAppBrowserReference.executeScript({
+//		 file: "http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"
+////	alert("geladen");
+//		        //webURL works fine with 'file'
+//		}, function() {
+//			alert("geladen");
+//		$(document).ready(function(){
+//			$('#Email').val('q7q)qUf1f!fX');
+//			
+//		});
+//			 
+//		});
+//};
+
+
 function closeInAppBrowserErr(event) {
 	if (event.url.match("/close")) {
 		InAppBrowserReference.close();

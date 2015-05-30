@@ -1,19 +1,20 @@
 currentPage = {};
-
+var dienst;
+var user;
 currentPage.init = function(){
 	WL.Logger.debug("Edit Account :: init");
 	$("#pageDescr").html('Edit account');
 //einfuegen hier
-	var user = JSON.parse(localStorage.services)[indexGlobal].user[userIndexGlobal];
-	var dienste = JSON.parse(localStorage.getItem('services'))[indexGlobal];
-	$('#serivceDiv').append('<a> <img src="'+dienste.logo+'"> <h2>'+ dienste.dienstname +'</h2><h3>'+dienste.dienstbeschreibenug+'</h3> </a>');
+	user = JSON.parse(localStorage.services)[indexGlobal].user[userIndexGlobal];
+	dienst = JSON.parse(localStorage.getItem('services'))[indexGlobal];
+	$('#serivceDiv').append('<a> <img src="'+dienst.logo+'"> <h2>'+ dienst.dienstname +'</h2><h3>'+dienst.dienstbeschreibenug+'</h3> </a>');
 	
-//	$('#serviceLogo').append('<a> <img src="'+dienste.logo+'"> </a>')
-//	$('#serivceDiv').append('<a > <h2>'+ dienste.dienstname +'</h2><h3>'+dienste.dienstbeschreibenug+'</h3> </a>');
+//	$('#serviceLogo').append('<a> <img src="'+dienst.logo+'"> </a>')
+//	$('#serivceDiv').append('<a > <h2>'+ dienst.dienstname +'</h2><h3>'+dienst.dienstbeschreibenug+'</h3> </a>');
 
 	$('#userName').append('<a>'+ user + '</a>')
 	
-//	$('#serivceDiv').append('<a class="item item-avatar listColor"> <img src="'+dienste.logo+'"> <h2>'+ dienste.dienstname +'</h2><h3>'+dienste.dienstbeschreibenug+'</h3> </a>');
+//	$('#serivceDiv').append('<a class="item item-avatar listColor"> <img src="'+dienst.logo+'"> <h2>'+ dienst.dienstname +'</h2><h3>'+dienst.dienstbeschreibenug+'</h3> </a>');
 	
 
 };
@@ -44,22 +45,24 @@ function editDelete() {
 }
 
 function showPw() {
-	var salt = JSON.parse(localStorage.mapw)[0].hashwert;
-	var iteration = JSON.parse(localStorage.services)[indexGlobal].iteration;
-	var length = JSON.parse(localStorage.services)[indexGlobal].lengthpass;
-	var numbers = JSON.parse(localStorage.services)[indexGlobal].numbers;
-	var letters = JSON.parse(localStorage.services)[indexGlobal].letters;
-	var characters = JSON.parse(localStorage.services)[indexGlobal].characters;
-	
-	var user = JSON.parse(localStorage.services)[indexGlobal].user[userIndexGlobal];
+	toggleOverlay();
+	var hashJSON = JSON.parse(localStorage.mapw)[0].hashwert;
+	var iteration = dienst.iteration;
+	var length = dienst.lengthpass;
+	var numbers = dienst.numbers;
+	var letters = dienst.letters;
+	var characters = dienst.characters;
 	var mapw = getMApw();
-	var pw = mapw.concat(user);
-	
-	var mypbkdf2 = new PBKDF2(pw, salt, iteration, length, numbers, characters,
+	var input = mapw.concat(user);
+	var salt= hashJSON.concat(dienste[indexGlobal].dienstname);
+	var mypbkdf2 = new PBKDF2(input, salt, iteration, length, numbers, characters,
 			letters);
 
 	var result_callback = function(key) {
-		 alert("YOUR PW : " + key );
+		// alert("YOUR PW : " + key );
+		document.getElementById('showPW').innerHTML=key;
+		document.getElementById('showPW').style.visibility="visible";
+		toggleOverlay();
 	};
 	mypbkdf2.deriveKey(result_callback);
 	

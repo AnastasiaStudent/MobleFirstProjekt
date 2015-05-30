@@ -13,7 +13,7 @@ if (typeof (Storage) != 'undefined' && !('mapw' in localStorage)) {
 	} ]));
 
 } else {
-	alert("MAPW: Daten werden nicht ueberschreiben.");
+	//alert("MAPW: Daten werden nicht ueberschreiben.");
 }
 
 function addHash(hash) {

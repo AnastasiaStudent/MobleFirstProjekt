@@ -1,11 +1,12 @@
 currentPage = {};
 var servicePW;
+var dienste;
 var user;
 
 currentPage.init = function() {
 	WL.Logger.debug("NewAccount :: init");
 	$("#pageDescr").html('New account');
-	var dienste = JSON.parse(localStorage.getItem('services'));
+	dienste = JSON.parse(localStorage.getItem('services'));
 	var selectList = document.getElementById("selectServices")
 	$.each(dienste, function(i, value) {
 		// alert(value.dienstname + " : " + i);
@@ -30,34 +31,42 @@ currentPage.loadPage = function(pageName) {
 };
 
 addAcc = function() {
+	if (document.getElementById("selectServices").value == "Select prefered service:"){
+		alert("Please select your service.");
+	}
+	else if(document.getElementById("userName").value.length==0){
+		alert("Please enter your username.");
+	}
+	else{
+	toggleOverlay();
 	//selectBox
 	indexGlobal = document.getElementById("selectServices").value;
-	var m_value = document.getElementById("selectServices").value;
-	var m_option = document.getElementById("selectServices").options;
 	//PW berechnen
-	var salt = JSON.parse(localStorage.mapw)[0].hashwert;
-	var iteration = JSON.parse(localStorage.services)[indexGlobal].iteration;
-	var length = JSON.parse(localStorage.services)[indexGlobal].lengthpass;
-	var numbers = JSON.parse(localStorage.services)[indexGlobal].numbers;
-	var letters = JSON.parse(localStorage.services)[indexGlobal].letters;
-	var characters = JSON.parse(localStorage.services)[indexGlobal].characters;
+	var hashJSON = JSON.parse(localStorage.mapw)[0].hashwert;
+	var iteration = dienste[indexGlobal].iteration;
+	var length = dienste[indexGlobal].lengthpass;
+	var numbers = dienste[indexGlobal].numbers;
+	var letters = dienste[indexGlobal].letters;
+	var characters = dienste[indexGlobal].characters;
+	var salt= hashJSON.concat(dienste[indexGlobal].dienstname);
 	//Eingabe: user
 	user = document.getElementById("userName").value;
 	var mapw = getMApw();
-	var pw = mapw.concat(user);
+	var input = mapw.concat(user);
 	
-	var mypbkdf2 = new PBKDF2(pw, salt, iteration, length, numbers, characters,
+	var mypbkdf2 = new PBKDF2(input, salt, iteration, length, numbers, characters,
 			letters);
 
 	var result_callback = function(key) {
 		 servicePW = key;
 	//	 alert("passwordservice: " + key);
 		 currentPage.loadPage("setpw");
+		 toggleOverlay();
 	};
 	//alert("Indexglobal: " + indexGlobal +  " - pw: " + pw + " - " + iteration);
 	mypbkdf2.deriveKey(result_callback);
 	
-
+	}
 }
 
 currentPage.back = function() {
