@@ -8,8 +8,13 @@ currentPage.init = function(){
 };
 
 saveInServices = function(){
+	if (checkUser(user)){
 	addUser(indexGlobal, user);
 	currentPage.loadPage("mngt");
+	}
+	else {
+		alert("Error... This user name already exists for this service");
+	}
 }
 
 currentPage.loadPage = function(pageName){

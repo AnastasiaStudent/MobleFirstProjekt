@@ -266,7 +266,24 @@ function addUser(index, userToAdd) {
 	// Daten in den JSON_array schreiben
 	localStorage.setItem('services', JSON.stringify(dienste));
 }
-
+function checkUser(userName){
+	var dienste = JSON.parse(localStorage.services);
+	var dienst =dienste[indexGlobal];
+	
+x=0;
+do {
+if(userName===dienst.user[x]){
+	x=dienst.user.length;
+		return false;
+	}
+else{
+	 x = x + 1;
+}
+    
+     
+  } while (x < dienst.user.length);
+return true;
+}
 function deleteUser(indexService, indexUser) {
 	// Daten aus localStorage holen
 	var dienste = JSON.parse(localStorage.services);
