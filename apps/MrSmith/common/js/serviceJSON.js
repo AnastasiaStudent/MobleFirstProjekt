@@ -1,5 +1,7 @@
 //localStorage.removeItem('services');
 if (typeof (Storage) != "undefined" && !('services' in localStorage)) {
+loadService();}
+function loadService(){
 	// Store
 	localStorage
 			.setItem(
@@ -87,7 +89,7 @@ if (typeof (Storage) != "undefined" && !('services' in localStorage)) {
 									},{
 										"dienstname" : "Intranet Hochschule Reutlingen",
 										"dienstbeschreibenug" : "Das Intranet der Hochschule Reutlingen",
-										"url" : "https://intranet.reutlingen-university.de/login/?redirect_url=/",
+										"url" : "https://intranet.reutlingen-university.de/login/",
 										"logo" : "images/service_icons/ihr.jpg",
 										"namefeld_identifikator" : "id",
 										"namefeld" : "user",
@@ -252,8 +254,6 @@ if (typeof (Storage) != "undefined" && !('services' in localStorage)) {
 										"iteration" : 5000
 									} 
 									]));
-} else {
-	//alert("SERVICES: Daten werden nicht ueberschreiben.");
 }
 
 function addUser(index, userToAdd) {

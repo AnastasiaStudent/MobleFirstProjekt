@@ -85,11 +85,11 @@ function rstr2hex(input, number, sign, capital) {
 	var hasSign = 2;
 	
 	// var hex_tab = hexcase ? "!§$%&/()=?/*-+qwertzuiopasdfghjklyxcvbnm,;.:_" : "!+QWE§$RTZ%&UI,OP_A/(SD.:FG;H)=JKLY?/XCV*-BNM";
-	var hex_tab = "qQwWeErRtTzZuUiIoOpPaAsSdDfFgGhHjJkKlLyYxXcCvVbBnNmM1234567890_-.,/<>(;:!§$%&)=?#+*~";
-	var hex_tab0 = "qQwWeErRtTzZuUiIoOpPaAsSdDfFgGhHjJkKlLyYxXcCvVbBnNmM";
-	var hex_tab2 = "QWERTZUIOPASDFGHJKLYXCVBNM";
-	var hex_tab3 = "1234567890";
-	var hex_tab4 = "_-.,;:!$%&/()?*~";
+	var tab_all = "qQwWeErRtTzZuUiIoOpPaAsSdDfFgGhHjJkKlLyYxXcCvVbBnNmM1234567890_-.,/<>(;:!§$%&)=?#+*~";
+	var tab_letters = "qQwWeErRtTzZuUiIoOpPaAsSdDfFgGhHjJkKlLyYxXcCvVbBnNmM";
+	var tab_capital = "QWERTZUIOPASDFGHJKLYXCVBNM";
+	var tab_numbers = "1234567890";
+	var tab_sign = "_-.,;:!$%&/()?*~";
 	var output = "";
 	var x;
 	for (var i = 0; i < input.length; i++) {
@@ -97,33 +97,33 @@ function rstr2hex(input, number, sign, capital) {
 		
 		if (s_number === 0 && s_sign === 0 && s_capital === 0) {
 			
-			output += hex_tab.charAt((x * 13) % 83) 
-					+ hex_tab.charAt(x % 83);
+			output += tab_all.charAt((x * 13) % 84) 
+					+ tab_all.charAt((x * 7) % 84);
 		//alert("EGALWAS output: " +  output);			
 		} else {
 			
 			//adding numbers
 			if (s_number === 1 && s_n_anzahl < hasNumber) {
 				
-				output += hex_tab0.charAt((x * 13) % 52) 
-						+ hex_tab3.charAt(x % 10);
+				output += tab_letters.charAt((x * 3) % 52) 
+						+ tab_numbers.charAt(x % 10);
 					//	alert("NUMBER output: " +  output);
 				hasNumber++;
 
 			} else {
-				output += hex_tab0.charAt((x * 13) % 83);
+				output += tab_letters.charAt((x * 5) % 83);
 
 			}
 			//adding special characters
 			if (s_sign === 1 && s_s_anzahl < hasSign) {
 				
 
-				output += hex_tab0.charAt((x * 13) % 52) 
-						+ hex_tab4.charAt(x % 16);
+				output += tab_letters.charAt((x * 7) % 52) 
+						+ tab_sign.charAt(x % 16);
 				//alert("SIGN output: " +  output);
 				hasSign++;
 			} else {
-				output += hex_tab0.charAt((x * 5) % 52);
+				output += tab_letters.charAt((x * 11) % 52);
 				//alert("else SIGN output: " +  output);
 
 			}
@@ -131,12 +131,12 @@ function rstr2hex(input, number, sign, capital) {
 			//adding capital letters
 			if (s_capital === 1 && s_c_anzahl < hasCapital) {
 				
-				output += hex_tab0.charAt((x * 13) % 52) 
-				+ hex_tab2.charAt(x % 25);
+				output += tab_letters.charAt((x * 11) % 52) 
+				+ tab_capital.charAt(x % 25);
 				//alert("CAPITAL output: " +  output);
 				hasCapital++;
 			} else {
-				output += hex_tab0.charAt((x * 3) % 52);
+				output += tab_letters.charAt((x * 13) % 52);
 
 			}
 

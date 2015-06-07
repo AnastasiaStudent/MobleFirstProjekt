@@ -19,7 +19,7 @@ currentPage.init = function(){
 
 
 currentPage.dienstladen = function(userIndex) {
-	toggleOverlay();
+	wait();
 	WL.Logger.debug("full :: Dienstladen" + " - " + userIndex);
 //	$("#userList a").attr("onclick", "");
 //	$("#userList").css("visibility", "hidden");	
@@ -84,7 +84,7 @@ codeText = feldEmail + "'" + user + "'; " + feldPass + "'" + pass
 + "'; ";
 }
 
-toggleOverlay();
+wait();
 openInAppBrowser();
 };
 

@@ -22,7 +22,7 @@ currentPage.serviceSelect = function (index){
 
 
 currentPage.loadPage = function(pageName){
-	$("#plus_kreuz").removeClass("button ion-close-circled button-clear");
+	$("#plus_kreuz").removeClass("button ion-plus button-clear");
 	$("#plus_kreuz").css("visibility", "hidden");
 	$("#plus_kreuz").attr("onclick", "")
 	

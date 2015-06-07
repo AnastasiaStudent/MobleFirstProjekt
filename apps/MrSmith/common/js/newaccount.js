@@ -38,7 +38,7 @@ addAcc = function() {
 		alert("Please enter your username.");
 	}
 	else{
-	toggleOverlay();
+	wait();
 	//selectBox
 	indexGlobal = document.getElementById("selectServices").value;
 	//PW berechnen
@@ -61,7 +61,7 @@ addAcc = function() {
 		 servicePW = key;
 	//	 alert("passwordservice: " + key);
 		 currentPage.loadPage("setpw");
-		 toggleOverlay();
+		 wait();
 	};
 	//alert("Indexglobal: " + indexGlobal +  " - pw: " + pw + " - " + iteration);
 	mypbkdf2.deriveKey(result_callback);

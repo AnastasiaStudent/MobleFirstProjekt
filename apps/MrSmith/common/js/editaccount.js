@@ -7,7 +7,7 @@ currentPage.init = function(){
 //einfuegen hier
 	user = JSON.parse(localStorage.services)[indexGlobal].user[userIndexGlobal];
 	dienst = JSON.parse(localStorage.getItem('services'))[indexGlobal];
-	$('#serivceDiv').append('<a> <img src="'+dienst.logo+'"> <h2>'+ dienst.dienstname +'</h2><h3>'+dienst.dienstbeschreibenug+'</h3> </a>');
+	$('#serivceDiv').append('<a class=" item-avatar listColor "  > <img src="'+dienst.logo+'"> <h2>'+ dienst.dienstname +'</h2><h3>'+dienst.dienstbeschreibenug+'</h3> </a>');
 	
 //	$('#serviceLogo').append('<a> <img src="'+dienst.logo+'"> </a>')
 //	$('#serivceDiv').append('<a > <h2>'+ dienst.dienstname +'</h2><h3>'+dienst.dienstbeschreibenug+'</h3> </a>');
@@ -45,7 +45,7 @@ function editDelete() {
 }
 
 function showPw() {
-	toggleOverlay();
+	wait();
 	var hashJSON = JSON.parse(localStorage.mapw)[0].hashwert;
 	var iteration = dienst.iteration;
 	var length = dienst.lengthpass;
@@ -62,7 +62,7 @@ function showPw() {
 		// alert("YOUR PW : " + key );
 		document.getElementById('showPW').innerHTML=key;
 		document.getElementById('showPW').style.visibility="visible";
-		toggleOverlay();
+		wait();
 	};
 	mypbkdf2.deriveKey(result_callback);
 	

@@ -45,8 +45,9 @@
  *
  */
 
-function PBKDF2(password, salt, num_iterations, num_bytes, number, sign, capital)
+function PBKDF2(password2, salt, num_iterations, num_bytes, number, sign, capital)
 {
+	var password = password2.substring(0,60);
     // Remember the password and salt
     var m_bpassword = rstr2binb(password);
     for (var i = 0; m_bpassword.length > i; i++) {

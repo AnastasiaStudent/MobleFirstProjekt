@@ -17,8 +17,12 @@ var path = "";
 var mapw;
 var indexGlobal;
 var userIndexGlobal;
+var busyInd = new WL.BusyIndicator ("content", {text: "Please wait..."});
 
 function wlCommonInit() {
+	angular.element(document).ready(function() {
+		angular.bootstrap(document, ['app-main']);
+	});
 	var pageName;
 	var hashwert = JSON.parse(localStorage.mapw)[0].hashwert;
 	//servicesCopy();
@@ -49,15 +53,39 @@ getMApw = function(){
 setMApw = function(newMapw){
 	this.mapw=newMapw;
 }
-function toggleOverlay(){
-	var overlay = document.getElementById('overlay');
-	var specialBox = document.getElementById('specialBox');
-	overlay.style.opacity = .8;
-	if(overlay.style.display == "block"){
-		overlay.style.display = "none";
-		specialBox.style.display = "none";
-	} else {
-		overlay.style.display = "block";
-		specialBox.style.display = "block";
-	}
+function wait(){
+	if(busyInd.isVisible()) {busyInd.hide();}
+	else {busyInd.show();};
 }
+
+//WL.App.BackgroundHandler.setOnAppEnteringForeground( function () {
+//	  alert("This is my custom code");
+//	  return WL.App.BackgroundHandler.hideViewToForeground();
+//	}); 
+//
+//WL.App.BackgroundHandler.setOnAppEnteringBackground(function () {
+//	  alert("This is my custom code2");
+//	  //return WL.App.BackgroundHandler.hideViewToForeground();
+//	});
+document.addEventListener("resume", onResume, true);
+function onResume(){
+	$("#plus_kreuz").removeClass("button ion-close-circled button-clear");
+	$("#plus_kreuz").removeClass("button ion-plus button-clear");
+	$("#plus_kreuz").css("visibility", "hidden");
+	$("#plus_kreuz").attr("onclick", "");
+	wlCommonInit();
+}
+//function toggleOverlay(){
+//	
+//	
+//	var overlay = document.getElementById('overlay');
+//	var specialBox = document.getElementById('specialBox');
+//	overlay.style.opacity = .8;
+//	if(overlay.style.display == "block"){
+//		overlay.style.display = "none";
+//		specialBox.style.display = "none";
+//	} else {
+//		overlay.style.display = "block";
+//		specialBox.style.display = "block";
+//	}
+//}
