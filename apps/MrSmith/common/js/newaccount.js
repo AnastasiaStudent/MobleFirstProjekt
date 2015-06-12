@@ -6,6 +6,7 @@ var user;
 currentPage.init = function() {
 	WL.Logger.debug("NewAccount :: init");
 	$("#pageDescr").html('New account');
+	$("#back").css("visibility", "visible");
 	dienste = JSON.parse(localStorage.getItem('services'));
 	var selectList = document.getElementById("selectServices")
 	$.each(dienste, function(i, value) {

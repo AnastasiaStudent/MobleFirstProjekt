@@ -2,13 +2,18 @@ currentPage = {};
 
 currentPage.init = function() {
 	WL.Logger.debug("setmapw :: init");
-	$("#pageDescr").html('Initialization');
-
+	//$("#header").css("visibility", "hidden");
+//	$("#pageDescr").html('Initialization');
+	$("#back").css("visibility", "hidden");
+	
+	$("#pw").focus();
+	//document.getElementById('pw').focus();
 };
 
 currentPage.loadPage = function(pageName) {
 	WL.Logger.debug("setmapw :: loadPage :: pageName: " + pageName);
 	pagesHistory.push("setmapw");
+	$("#header").css("visibility", "visible");
 	$("#pagePort").load(path + "pages/" + pageName + ".html", function() {
 			$.getScript(path + "js/" + pageName + ".js", function() {
 				if (currentPage.init) {
@@ -30,12 +35,13 @@ currentPage.mapwSetzen = function (){
 	var pw = document.getElementById("pw").value;
 	var cpw = document.getElementById("cpw").value;
 	
+	
+
+if (pw === cpw && pw != "" && pw.length >= 12) {
 	var mypbkdf2 = new PBKDF2(pw, "", iteration, length,numbers,characters,letters);
 	var result_callback = function(key) {
 		addHash(key);
 };
-
-if (pw === cpw && pw != "" && pw.length >= 12) {
 	setMApw(pw);	
 	mypbkdf2.deriveKey(result_callback);
 	currentPage.loadPage('mngt');
@@ -58,6 +64,7 @@ else if (pw.length < 12 ){
 currentPage.back = function() {
 	WL.Logger.debug("Setmapw :: back");
 	var pageName = pagesHistory.pop();
+	$("#header").css("visibility", "visible");
 	$("#pagePort").load(path + "pages/" + pageName + ".html", function() {
 		$.getScript(path + "js/" + pageName + ".js", function() {
 			if (currentPage.init) {

@@ -5,6 +5,7 @@ currentPage.init = function(){
 	$("#pageDescr").html('Finished');
 	var pwField = document.getElementById("servicePW");
 	pwField.value = servicePW;
+	$("#back").css("visibility", "visible");
 };
 
 saveInServices = function(){
@@ -18,7 +19,6 @@ saveInServices = function(){
 }
 
 currentPage.loadPage = function(pageName){
-	$("#plus").css("visibility", "hidden");
 	WL.Logger.debug("Setpw :: loadPage :: pageName: " + pageName);
 	pagesHistory.push("setpw");
 	$("#pagePort").load(path + "pages/" + pageName + ".html", function(){

@@ -1,5 +1,3 @@
-
-/* Stylesheet content from ionic/css/ionic.css in folder common */
 /*!
  * Copyright 2014 Drifty Co.
  * http://drifty.com/
@@ -2759,7 +2757,7 @@ a.subdued {
       background: transparent; }
   .bar.bar-light {
     border-color: #ddd;
-    background-color: #6c848c;/*white / Özi*/;
+    background-color: white;
     background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);
     color: #444; }
     .bar.bar-light .title {
@@ -2775,9 +2773,9 @@ a.subdued {
       color: #444; }
     .bar.bar-stable.bar-footer {
       background-image: linear-gradient(180deg, #b2b2b2, #b2b2b2 50%, transparent 50%); }
- .bar.bar-positive {
-    border-color: #033262; /*old value 0c63ee*/
-    background-color: #033262; /*old value 387ef5 */
+  .bar.bar-positive {
+    border-color: #0c63ee;
+    background-color: #387ef5;
     background-image: linear-gradient(0deg, #0c63ee, #0c63ee 50%, transparent 50%);
     color: #fff; }
     .bar.bar-positive .title {
@@ -4669,7 +4667,7 @@ a.item-content {
     max-width: 40px;
     max-height: 40px;
     width: 100%;
-    border-radius: 0% /*old value 50%*/; }
+    border-radius: 50%; }
 
 .item-avatar-right, .item-avatar-right .item-content {
   padding-right: 72px;
@@ -6058,8 +6056,8 @@ progress {
         box-shadow: none;
         color: #fff; }
   .button.button-calm {
-      border-color: #99FFFF; /*old value #0a9ec7;*/
-      background-color: #99FFFF; /*old value #11c1f3;*/
+    border-color: #0a9ec7;
+    background-color: #11c1f3;
     color: #fff; }
     .button.button-calm:hover {
       color: #fff;
@@ -6085,8 +6083,8 @@ progress {
         box-shadow: none;
         color: #fff; }
   .button.button-assertive {
-      border-color: #FF3300; /*old value e42012*/
-      background-color: #FF3300; /*old value ef473a*/
+    border-color: #e42012;
+    background-color: #ef473a;
     color: #fff; }
     .button.button-assertive:hover {
       color: #fff;
@@ -6111,9 +6109,9 @@ progress {
         background-color: #ef473a;
         box-shadow: none;
         color: #fff; }
-.button.button-balanced {
-    border-color: #CCFF33; /*old value #28a54c;*/
-    background-color: #CCFF33; /*old value #33cd5f;*/
+  .button.button-balanced {
+    border-color: #28a54c;
+    background-color: #33cd5f;
     color: #fff; }
     .button.button-balanced:hover {
       color: #fff;
@@ -6126,7 +6124,7 @@ progress {
       border-color: transparent;
       background: none;
       box-shadow: none;
-    color: #CCFF33/*old value #33cd5f*/; }
+      color: #33cd5f; }
     .button.button-balanced.button-icon {
       border-color: transparent;
       background: none; }
@@ -6166,8 +6164,8 @@ progress {
         box-shadow: none;
         color: #fff; }
   .button.button-royal {
-      border-color: #FF3399; /*old value #6b46e5;*/
-      background-color: #FF3399; /*old value #886aea;*/
+    border-color: #6b46e5;
+    background-color: #886aea;
     color: #fff; }
     .button.button-royal:hover {
       color: #fff;

@@ -8,7 +8,7 @@ currentPage.init = function(){
 	
 	$("#pageDescr").html('User');
 	WL.Logger.debug('User :: init');
-	
+	$("#back").css("visibility", "visible");
 	dienste = JSON.parse(localStorage.getItem('services'));
 	users=dienste[indexGlobal].user;
 	$.each(users, function(i, field) {

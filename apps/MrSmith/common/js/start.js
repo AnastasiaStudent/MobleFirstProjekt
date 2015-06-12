@@ -6,13 +6,16 @@ currentPage.init = function(){
 	$("#plus_kreuz").addClass("button ion-close-circled button-clear");
 	$("#plus_kreuz").css("visibility", "visible");
 	$("#plus_kreuz").attr("onclick", "delAll()")
+	$("#back").css("visibility", "hidden");
+	$("#header").css("visibility", "visible");
+	$("#mapw").focus();
 	//document.getElementById("mapw").value="password1234";
 };
 
 currentPage.loadPage = function(pageName){
 	$("#plus_kreuz").removeClass("button ion-close-circled button-clear");
 	$("#plus_kreuz").css("visibility", "hidden");
-	$("#plus_kreuz").attr("onclick", "")
+	$("#plus_kreuz").attr("onclick", "");
 	WL.Logger.debug("Start :: loadPage :: pageName: " + pageName);
 	pagesHistory.push("start");
 	$("#pagePort").load(path + "pages/" + pageName + ".html", function(){
@@ -81,7 +84,7 @@ function delAll() {
 currentPage.back = function(){
 	$("#plus_kreuz").removeClass("button ion-close-circled button-clear");
 	$("#plus_kreuz").css("visibility", "hidden");
-	$("#plus_kreuz").attr("onclick", "")
+	$("#plus_kreuz").attr("onclick", "");
 	WL.Logger.debug("Start :: back");
 	var pageName=pagesHistory.pop();
 	$("#pagePort").load(path + "pages/" + pageName + ".html", function(){

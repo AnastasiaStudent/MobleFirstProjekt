@@ -1,8 +1,8 @@
 currentPage = {};
 currentPage.init = function(){
-	
-	$("#pageDescr").html('All logins');
 	WL.Logger.debug('Full :: init');
+	$("#back").css("visibility", "hidden");
+	$("#pageDescr").html('All logins');
 	var dienste = JSON.parse(localStorage.getItem('services'));
 	$.each(dienste, function(i, field) {
 		if (field.user.length > 0){

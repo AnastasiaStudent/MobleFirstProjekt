@@ -3,6 +3,7 @@ currentPage = {};
 currentPage.init = function(){
 	WL.Logger.debug("About us :: init");
 	$("#pageDescr").html('About us');
+	$("#back").css("visibility", "visible");
 };
 
 currentPage.loadPage = function(pageName){

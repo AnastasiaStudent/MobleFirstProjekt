@@ -4,6 +4,7 @@ var user;
 currentPage.init = function(){
 	WL.Logger.debug("Edit Account :: init");
 	$("#pageDescr").html('Edit account');
+	$("#back").css("visibility", "visible");
 //einfuegen hier
 	user = JSON.parse(localStorage.services)[indexGlobal].user[userIndexGlobal];
 	dienst = JSON.parse(localStorage.getItem('services'))[indexGlobal];

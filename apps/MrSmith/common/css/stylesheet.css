@@ -1,3 +1,5 @@
+
+/* Stylesheet content from css/stylesheet.css in folder common */
 body {
 	color: red;
 }
@@ -20,6 +22,7 @@ h3{
 p {
 	color: #CCFF33;
 }
+
 
 body {
 	background-color: #192533;
@@ -95,3 +98,48 @@ border-color:#ccff33;
 	text-align:center;
 }*/
 
+
+
+
+
+.bar.bar-positive {
+    border-color: #033262; /*old value 0c63ee*/
+    background-color: #033262; /*old value 387ef5 */
+
+
+.item-avatar > img:first-child, .item-avatar .item-image, .item-avatar .item-content > img:first-child, .item-avatar .item-content .item-image, .item-avatar-left > img:first-child, .item-avatar-left .item-image, .item-avatar-left .item-content > img:first-child, .item-avatar-left .item-content .item-image {
+
+    border-radius: 0% /*old value 50%*/; }
+
+.button.button-calm {
+    border-color: #99FFFF; /*old value #0a9ec7;*/
+    background-color: #99FFFF; /*old value #11c1f3;*/
+
+
+.button.button-assertive {
+    border-color: #FF3300; /*old value e42012*/
+    background-color: #FF3300; /*old value ef473a*/
+
+
+.button.button-balanced {
+    border-color: #CCFF33; /*old value #28a54c;*/
+    background-color: #CCFF33; /*old value #33cd5f;*/
+
+
+.button.button-balanced.button-clear {
+    /*font-weight: bold;*/
+    color: #CCFF33/*old value #33cd5f*/; }
+
+.button.button-royal {
+    border-color: #FF3399; /*old value #6b46e5;*/
+    background-color: #FF3399; /*old value #886aea;*/
+
+.bar.bar-light {
+    border-color: #ddd;
+    background-color: #6c848c;/*white*/;
+    background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);
+    color: #444; }
+.bar.bar-light .title {
+    color: #444; }
+.bar.bar-light.bar-footer {
+    background-image: linear-gradient(180deg, #ddd, #ddd 50%, transparent 50%); }
