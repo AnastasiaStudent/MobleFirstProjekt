@@ -45,7 +45,12 @@ currentPage.validate  = function(){
 					+ pageName);
 			currentPage.loadPage('full');
 		} else {
-			alert("Your password is not correct!");
+			//alert("Your password is not correct!");
+			WL.SimpleDialog.show(
+					"Information", "Your password is not correct!", 
+					[{text: "OK", handler: function() {WL.Logger.debug("Password is not correct"); }
+					}]
+					) ;
 		}
 	wait();
 	};
@@ -57,27 +62,34 @@ currentPage.validate  = function(){
 
 	
 function delAll() {
-	if (confirm("Are you sure?") == true) {
-		deleteHash();
-		loadService();
-	
-		//Daten aus localStorage holen
-//		var dienste = JSON.parse(localStorage.services);
-//		var lengthUser;
-//
-		//iterieren ueber JSON_array: key := 0, 1, ..., n
-//		for (key in dienste) {
-//			 lengthUser = dienste[key].user.length;
-//					//alert(lengthUser + " : DELETE: " + dienste[key].user);
-//					dienste[key].user.splice(0, lengthUser);
-//				
-//		}
-//		//Daten in den JSON_array schreiben
-//		localStorage.setItem('services', JSON.stringify(dienste));
-		
-		currentPage.loadPage('setmapw');
-		
-	} 
+	WL.SimpleDialog.show(
+			"Confirmation", "Are you sure?", 
+			[{text: "Yes", handler: function() {WL.Logger.debug("reset..."); deleteHash();
+			loadService();currentPage.loadPage('setmapw'); }
+			},{text: "Cancel", handler: function() {WL.Logger.debug("cancel");}
+			}]
+			) ;
+//	if (confirm("Are you sure?") == true) {
+//		deleteHash();
+//		loadService();
+//	
+//		//Daten aus localStorage holen
+////		var dienste = JSON.parse(localStorage.services);
+////		var lengthUser;
+////
+//		//iterieren ueber JSON_array: key := 0, 1, ..., n
+////		for (key in dienste) {
+////			 lengthUser = dienste[key].user.length;
+////					//alert(lengthUser + " : DELETE: " + dienste[key].user);
+////					dienste[key].user.splice(0, lengthUser);
+////				
+////		}
+////		//Daten in den JSON_array schreiben
+////		localStorage.setItem('services', JSON.stringify(dienste));
+//		
+//		currentPage.loadPage('setmapw');
+//		
+//	} 
 
 }
 

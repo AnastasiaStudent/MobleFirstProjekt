@@ -33,10 +33,20 @@ currentPage.loadPage = function(pageName) {
 
 addAcc = function() {
 	if (document.getElementById("selectServices").value == "Select prefered service:"){
-		alert("Please select your service.");
+		//alert("Please select your service.");
+		WL.SimpleDialog.show(
+				"Information", "Please select your service.", 
+				[{text: "OK", handler: function() {WL.Logger.debug("Service was not selected"); }
+				}]
+				) ;
 	}
 	else if(document.getElementById("userName").value.length==0){
-		alert("Please enter your username.");
+		//alert("Please enter your username.");
+		WL.SimpleDialog.show(
+				"Information", "Please enter your username.", 
+				[{text: "OK", handler: function() {WL.Logger.debug("No username"); }
+				}]
+				) ;
 	}
 	else{
 	wait();

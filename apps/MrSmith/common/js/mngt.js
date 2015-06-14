@@ -15,7 +15,7 @@ currentPage.init = function(){
 	$('#mngtList').append('<a onclick="currentPage.serviceSelect('+ i + ')" class="item item-avatar listColor " href="#"> <img src="' + field.logo +'"> <h2>'+ field.dienstname +' </h2> <h3>' + field.dienstbeschreibenug +'</h3> </a>');
 	accountsNumber++;}});
 	if (accountsNumber==0){
-		$('#mngtList').append('<br><br><h3>Press the icon "+" to add a new account.<h3>');	
+		$('#mngtList').append('<div class="padding"><br><br><p><font color="#FFFFFF">Press the icon "+" to add a new account.</font></p></div>');	
 	};
 };
 

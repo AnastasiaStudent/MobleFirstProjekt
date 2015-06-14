@@ -2,8 +2,8 @@ currentPage = {};
 
 currentPage.init = function() {
 	WL.Logger.debug("setmapw :: init");
-	//$("#header").css("visibility", "hidden");
-//	$("#pageDescr").html('Initialization');
+	$("#header").css("visibility", "hidden");
+	//$("#pageDescr").html('Initialization');
 	$("#back").css("visibility", "hidden");
 	
 	$("#pw").focus();
@@ -23,7 +23,7 @@ currentPage.loadPage = function(pageName) {
 		});
 };
 
-currentPage.mapwSetzen = function (){
+currentPage.mapwSetzen2 = function (){
 	WL.Logger.debug("Setmapw :: MaPW setzen");
 	
 	var hashJSON = JSON.parse(localStorage.mapw)[0].hashwert;
@@ -47,15 +47,30 @@ if (pw === cpw && pw != "" && pw.length >= 12) {
 	currentPage.loadPage('mngt');
 } else if (pw !== cpw ){
 
-alert("Your entries do not match exactly. Please try again.");
+//conrifm("Your entries do not match exactly. Please try again.");
+WL.SimpleDialog.show(
+		"Information", "Your entries do not match exactly. Please try again.", 
+		[{text: "OK", handler: function() {WL.Logger.debug("Entries do not match exactly"); }
+		}]
+		) ;
 
 }else if (pw == "" ){
 
-	alert("Please enter your new password twice.");
+	//alert("Please enter your new password twice.");
+	WL.SimpleDialog.show(
+			"Information", "Please enter your new password twice.", 
+			[{text: "OK", handler: function() {WL.Logger.debug("Please enter your new password twice"); }
+			}]
+			) ;
 
 	}
 else if (pw.length < 12 ){
-	alert("Your password must be at least 12 characters long. Please try another.");
+	//alert("Your password must be at least 12 characters long. Please try another.");
+	WL.SimpleDialog.show(
+			"Information", "Your password must be at least 12 characters long. Please try another.", 
+			[{text: "OK", handler: function() {WL.Logger.debug("Password is short"); }
+			}]
+			) ;
 	}
 
 };

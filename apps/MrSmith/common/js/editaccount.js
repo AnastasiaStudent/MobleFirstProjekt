@@ -33,15 +33,16 @@ currentPage.loadPage = function(pageName){
 };
 
 function editDelete() {
-	var x;
-	if (confirm("Are you sure?") == true) {
-		x = "done";
-		//Account löschen
-		deleteUser(indexGlobal, userIndexGlobal);
-		currentPage.loadPage('mngt');
-	} else {
-		x = "cancelled";
-	}
+	
+	WL.SimpleDialog.show(
+			"Confirmation", "Are you sure?", 
+			[{text: "Yes", handler: function() {
+			//Account löschen
+			deleteUser(indexGlobal, userIndexGlobal);
+			currentPage.loadPage('mngt'); }
+			},{text: "Cancel", handler: function() {WL.Logger.debug("canceled");}
+			}]
+			) ;
 	//document.getElementById("demo").innerHTML = x;
 }
 

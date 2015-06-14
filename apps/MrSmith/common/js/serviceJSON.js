@@ -288,7 +288,13 @@ function deleteUser(indexService, indexUser) {
 	// Daten aus localStorage holen
 	var dienste = JSON.parse(localStorage.services);
 
-	alert("DELETE: " + dienste[indexService].user[indexUser]);
+	var infoText=dienste[indexService].user[indexUser] +" was deleted.";
+	WL.SimpleDialog.show(
+			"Information", infoText, 
+			[{text: "OK", handler: function() {
+				WL.Logger.debug("account deleted");}
+			}]
+			) ;
 	dienste[indexService].user.splice(indexUser, 1);
 
 	// Daten in den JSON_array schreiben
