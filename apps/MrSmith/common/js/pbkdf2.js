@@ -10,7 +10,7 @@
  *
  * Uses Paul Johnston's excellent SHA-1 JavaScript library sha1.js:
  * http://pajhome.org.uk/crypt/md5/sha1.html
- * (uses the binb_sha1(), rstr2binb(), binb2str(), rstr2hex() functions from that libary)
+ * (uses the binb_sha512(), rstr2binb(), binb2str(), rstr2hex() functions from that libary)
  *
  * Thanks to Felix Gartsman for pointing out a bug in version 1.0
  * Thanks to Thijs Van der Schaeghe for pointing out a bug in version 1.1 
@@ -102,7 +102,7 @@ function PBKDF2(password2, salt, num_iterations, num_bytes, number, sign, capita
 
     // Set up the HMAC-SHA1 computations
     if (m_bpassword.length > 16)
-        m_bpassword = binb_sha1(m_bpassword, password.length * chrsz);
+        m_bpassword = binb_sha512(m_bpassword, password.length * chrsz);
     for (var i = 0; i < 16; ++i)
     {
         m_ipad[i] = m_bpassword[i] ^ 0x36363636;
@@ -140,15 +140,15 @@ function PBKDF2(password2, salt, num_iterations, num_bytes, number, sign, capita
                         String.fromCharCode(m_current_block >> 8 & 0xF) +
                         String.fromCharCode(m_current_block & 0xF);
 
-                m_hash = binb_sha1(m_ipad.concat(rstr2binb(salt_block)),
+                m_hash = binb_sha512(m_ipad.concat(rstr2binb(salt_block)),
                         512 + salt_block.length * 8);
-                m_hash = binb_sha1(m_opad.concat(m_hash), 512 + 160);
+                m_hash = binb_sha512(m_opad.concat(m_hash), 512 + 160);
             }
             else
             {
-                m_hash = binb_sha1(m_ipad.concat(m_hash),
+                m_hash = binb_sha512(m_ipad.concat(m_hash),
                         512 + m_hash.length * 32);
-                m_hash = binb_sha1(m_opad.concat(m_hash), 512 + 160);
+                m_hash = binb_sha512(m_opad.concat(m_hash), 512 + 160);
             }
 
             for (var j = 0; j < m_hash.length; ++j){
@@ -185,8 +185,8 @@ function PBKDF2(password2, salt, num_iterations, num_bytes, number, sign, capita
                 // We've computed the final block T_l; we're done.
 
                 var tmp = rstr2hex(binb2rstr(m_buffer), number, sign, capital);
-               
-                m_key += tmp.substr(0, (m_key_length - (m_total_blocks - 1) * m_hash_length) * 1);
+              // alert("length: " + password2.length);
+                m_key += tmp.substr(password2.length-5, num_bytes);
 
                 // Call the result callback function
                

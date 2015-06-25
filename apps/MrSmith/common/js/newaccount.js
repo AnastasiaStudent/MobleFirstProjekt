@@ -59,12 +59,11 @@ addAcc = function() {
 	var numbers = dienste[indexGlobal].numbers;
 	var letters = dienste[indexGlobal].letters;
 	var characters = dienste[indexGlobal].characters;
-	var salt= hashJSON.concat(dienste[indexGlobal].dienstname);
+	var salt= hashJSON;
 	//Eingabe: user
 	user = document.getElementById("userName").value;
 	var mapw = getMApw();
-	var input = mapw.concat(user);
-	
+	var input = mapw.concat(user,dienste[indexGlobal].dienstname);
 	var mypbkdf2 = new PBKDF2(input, salt, iteration, length, numbers, characters,
 			letters);
 

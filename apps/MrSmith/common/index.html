@@ -6,22 +6,20 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
 <link rel="stylesheet" href="css/main.css">
-
- <!-- Diese Zeile auskommentieren, wenn die IONIC.CSS und mrsmith.css-Dateien von einander abgertrent werden -->
-        <!--link href="css/mrsmith.css" rel="stylesheet"-->
-        <link href="css/ionicons.css" rel="stylesheet">
-<!--         <link href="css/stylesheet.css" rel="stylesheet" type="text/css">Wenn hier steht, dann wird es von IONIC.CSS überladen -->
-        <link href="images/icons/favicon.ico" rel="shortcut icon">
-        <link href="images/icons/apple-touch-icon.png" rel="apple-touch-icon">
+<link href="css/ionicons.css" rel="stylesheet">
+<!-- Diese Zeile in den Code umwandeln, wenn die IONIC.CSS und mrsmith.css-Dateien von einander abgertrent werden -->
+     <link rel="stylesheet" href="ionic/css/ionic.css" /> 
+     <link href="css/stylesheet.css" rel="stylesheet" type="text/css"><!--muss hier stehen, da ansonsten überladen wird???-->
+<script src="ionic/js/ionic.bundle.js"></script>
+<link href="images/icons/favicon.ico" rel="shortcut icon">
+<link href="images/icons/apple-touch-icon.png" rel="apple-touch-icon">
 <script>
 	window.$ = window.jQuery = WLJQ;
 </script>
- <!-- Diese Zeile in den Code umwandeln, wenn die IONIC.CSS und mrsmith.css-Dateien von einander abgertrent werden -->
-     <link rel="stylesheet" href="ionic/css/ionic.css" />
-     <link href="css/stylesheet.css" rel="stylesheet" type="text/css"><!--muss hier stehen, da ansonsten überladen wird???-->
+ 
 </head>
-<body>
-	
+<body ng-app="app-main">
+ 	   
 	<!-- Header -->
 	<header id="header" style="visibility: hidden">
 		<div class="bar bar-header bar-light">
@@ -33,7 +31,7 @@
 <!-- 			<a  onclick ="" id="" class="button ion-close-circled button-clear" style="font-size: 23px; " ></a>  -->
 		</div>
 	</header>
-	
+	 
 	<!-- Content -Section  -->
 	<div >
 		<div id="pagePort"></div>
@@ -45,11 +43,13 @@
 	<script src="js/initOptions.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/messages.js"></script>
-	<script src="js/sha1.js"></script>
+	<script src="js/sha512.js"></script>
+<!-- 	<script src="js/sha1.js"></script> -->
 	<script src="js/pbkdf2.js"></script>
 	<!-- New lines to load Ionic JS bundle -->
-    <script src="ionic/js/ionic.bundle.js"></script>
+    
     <!-- New lines to load our modules -->
     <script src="app/app-main.js"></script>
+ 
 </body>
 </html>

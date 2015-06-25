@@ -23,6 +23,7 @@ function wlCommonInit() {
 	angular.element(document).ready(function() {
 		angular.bootstrap(document, ['app-main']);
 	});
+	
 	var pageName;
 	var hashwert = JSON.parse(localStorage.mapw)[0].hashwert;
 	//servicesCopy();

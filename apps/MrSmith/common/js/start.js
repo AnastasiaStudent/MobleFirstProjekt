@@ -54,16 +54,14 @@ currentPage.validate  = function(){
 		}
 	wait();
 	};
-
 	mypbkdf2.deriveKey(result_callback);
-
 
 };
 
 	
 function delAll() {
 	WL.SimpleDialog.show(
-			"Confirmation", "Are you sure?", 
+			"Confirmation", "Are you sure you want to reset you Master passwort? All entries will be deleted.", 
 			[{text: "Yes", handler: function() {WL.Logger.debug("reset..."); deleteHash();
 			loadService();currentPage.loadPage('setmapw'); }
 			},{text: "Cancel", handler: function() {WL.Logger.debug("cancel");}

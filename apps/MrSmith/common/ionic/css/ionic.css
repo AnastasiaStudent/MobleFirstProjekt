@@ -1544,7 +1544,9 @@
   content: "\f30a"; }
 
 .ion-plus:before {
-  content: "\f218"; }
+  content: "\f218"; 
+  color: #CCFF33;
+  }
 
 .ion-plus-circled:before {
   content: "\f216"; }

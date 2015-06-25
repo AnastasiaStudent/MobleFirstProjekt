@@ -55,8 +55,8 @@ function showPw() {
 	var letters = dienst.letters;
 	var characters = dienst.characters;
 	var mapw = getMApw();
-	var input = mapw.concat(user);
-	var salt= hashJSON.concat(dienste[indexGlobal].dienstname);
+	var input = mapw.concat(user,dienste[indexGlobal].dienstname);
+	var salt= hashJSON;
 	var mypbkdf2 = new PBKDF2(input, salt, iteration, length, numbers, characters,
 			letters);
 

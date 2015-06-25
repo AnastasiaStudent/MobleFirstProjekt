@@ -41,10 +41,12 @@ if (pw === cpw && pw != "" && pw.length >= 12) {
 	var mypbkdf2 = new PBKDF2(pw, "", iteration, length,numbers,characters,letters);
 	var result_callback = function(key) {
 		addHash(key);
+		currentPage.loadPage('mngt');
+		 
 };
 	setMApw(pw);	
 	mypbkdf2.deriveKey(result_callback);
-	currentPage.loadPage('mngt');
+	 
 } else if (pw !== cpw ){
 
 //conrifm("Your entries do not match exactly. Please try again.");

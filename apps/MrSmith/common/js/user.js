@@ -69,11 +69,10 @@ currentPage.dienstladen = function(userIndex) {
 	var letters = dienste[indexGlobal].letters;
 	var characters = dienste[indexGlobal].characters;
 var mapw = getMApw();
-var input = mapw.concat(user);
-
+var input = mapw.concat(user,dienste[indexGlobal].dienstname);
 var hashJSON = JSON.parse(localStorage.mapw)[0].hashwert;
-var slat= hashJSON.concat(dienste[indexGlobal].dienstname);
-var mypbkdf2 = new PBKDF2(input, slat, iteration, length, numbers, characters, letters);
+var salt= hashJSON;
+var mypbkdf2 = new PBKDF2(input, salt, iteration, length, numbers, characters, letters);
 var result_callback = function(passGen) {
 pass=passGen;
 if(dienste[indexGlobal].passfeld_identifikator=="type"){
