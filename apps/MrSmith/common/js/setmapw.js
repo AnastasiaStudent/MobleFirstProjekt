@@ -35,12 +35,22 @@ currentPage.mapwSetzen2 = function (){
 	var pw = document.getElementById("pw").value;
 	var cpw = document.getElementById("cpw").value;
 	
-	
-
-if (pw === cpw && pw != "" && pw.length >= 12) {
+	if((pw.match(/([0-9])/)==null)||(pw.match(/([A-Z])/)==null)||(pw.match(/([!,@,#,$,%,^,&,*,?,_,~])/)==null)){
+//		var res2=str.match(/([0-9])/);
+//		var res3=str.match(/([A-Z])/);
+//		var res4=str.match(/([!,@,#,$,%,^,&,*,?,_,~])/);
+		WL.SimpleDialog.show(
+				"Information", "Your password must contain at least one letter, one number and one special symbol. Please try another.", 
+				[{text: "OK", handler: function() {WL.Logger.debug("Password is short"); }
+				}]
+				) ;
+	}
+	else if (pw === cpw && pw != "" && pw.length >= 12) {
+	wait();
 	var mypbkdf2 = new PBKDF2(pw, "", iteration, length,numbers,characters,letters);
 	var result_callback = function(key) {
 		addHash(key);
+		wait();
 		currentPage.loadPage('mngt');
 		 
 };
